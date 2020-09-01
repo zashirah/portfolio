@@ -1,22 +1,30 @@
 import React from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
+
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
+import Headshot from "../components/Headshot"
+import ProfessionalSummary from "../components/ProfessionalSummary"
 
 import styled from "styled-components"
 
 const HomeContainer = styled.div`
-  width: 100vw;
-  height: 100vw;
-  background-color: #615192
+`
+
+const SummaryHeadshotContainer = styled.div`
+  padding-top: calc(50px + 10vh);
 `
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <HomeContainer />
+    <HomeContainer>
+      <SummaryHeadshotContainer>
+        <Headshot />
+        <ProfessionalSummary />
+      </SummaryHeadshotContainer>
+    </HomeContainer>
   </Layout>
 )
 
