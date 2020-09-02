@@ -4,13 +4,15 @@ import React from "react"
 import styled from "styled-components"
 
 const Nav = styled.div`
-  // background: transparent;
+  /* background-color: var(--white); */
   max-width: 1440px;
 `
 
 const NavHeader = styled.header`
+  /* background-color: var(--white); */
   max-width: 1440px;
   width: 100%;
+  /* height: 10vh; */
   padding: 25px 0px;
   position: fixed;
   top: 0;
