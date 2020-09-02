@@ -37,6 +37,7 @@ const Skills = () => {
     "tableau",
     "salesforce",
     "jupyter",
+    "gatsbyjs"
   ]
 
   console.log(iconPathArray)

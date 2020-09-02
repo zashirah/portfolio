@@ -5,10 +5,10 @@ import { motion } from "framer-motion"
 
 const Button = styled(motion.button)`
   background-color: var(--red);
-  height: 75px;
+  height: 50px;
   /* width: 200px; */
   color: var(--white);
-  font-size: 32px;
+  font-size: 18px;
   margin: 0 auto;
   display: flex;
   justify-content: center;

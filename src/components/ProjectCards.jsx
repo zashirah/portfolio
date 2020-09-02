@@ -7,9 +7,9 @@ import ProjectCard from "./ProjectCard"
 import image from "../images/gatsby-astronaut.png"
 
 const ProjectCardsContainer = styled.div`
-  padding: 100px;
+  padding-top: 150px;
   /* min-height: 1000px; */
-  height: 85vh;
+  /* height: 85vh; */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

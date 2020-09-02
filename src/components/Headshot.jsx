@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import headshotImage from "../images/headshot.png"
 
 const HeadshotContainer = styled.div`
-  position: fixed;
+  /* position: fixed; */
   border-radius: 100%;
   margin: 0;
   padding: 0;
@@ -19,9 +19,9 @@ const HeadshotImage = styled.img`
   padding: 0;
   border: solid var(--silver) 15px;
   object-fit: cover;
-  min-height: 350px;
+  /* min-height: 350px; */
   background-color: var(--siver);
-  // width: 500px;
+  /* width: 500px; */
 `
 
 const Headshot = () => {
