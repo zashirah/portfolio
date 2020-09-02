@@ -10,7 +10,7 @@ import AboutComponent from "../components/AboutComponent"
 
 const AboutPage = styled.div`
   margin: 100px auto 100px auto;
-  height: 80vh;
+  /* height: 80vh; */
   display: flex;
   flex-direction: row;
   align-items: center;

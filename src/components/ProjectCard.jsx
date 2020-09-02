@@ -9,10 +9,10 @@ import iconPathArray from "../assets/icons2"
 import Icon from "./Icon"
 
 const CardContainer = styled(motion.div)`
-  height: 400px;
-  width: 500px;
+  height: 60vh;
+  width: 80vw;
   padding: 15px;
-  margin: 25px;
+  margin: 75px;
   display: flex;
   flex-direction: row;
   background-color: var(--silver);
@@ -27,8 +27,8 @@ const CardContainer = styled(motion.div)`
 `
 
 const CardLeft = styled.div`
-  width: 300px;
-  height: 400px;
+  width: 60%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -36,20 +36,24 @@ const CardLeft = styled.div`
 
 const CardTitle = styled.h1`
   text-align: center;
+  margin-top: 0px;
+  margin-bottom: 10px;
 `
 
 const CardDescription = styled.p`
+  margin: 0px;
   padding: 0px 5px;
 `
 
 const CardSkills = styled.div`
-  padding: 0px 0px;
+  padding: 0px;
+  margin: 0px;
   display: flex;
   justify-content: space-evenly;
 `
 
 const CardRight = styled.div`
-  width: 200px;
+  width: 40%;
   height: 100%;
   position: relative;
 `
@@ -71,7 +75,7 @@ const ButtonLink = styled(motion.button)`
   font-size: 18px;
   background-color: var(--red);
   width: 150px;
-  left: 12.5%;
+  left: calc(50% - 75px);
   border-radius: 15px;
   border: none;
   padding: 2px;
