@@ -1,6 +1,7 @@
 import React from 'react'
 
 import styled from "styled-components"
+import { SocialIcon } from 'react-social-icons'
 
 import ResumeLink from "./ResumeLink"
 
@@ -16,6 +17,8 @@ const Footer = () => {
       {` `}
       <a href="https://www.gatsbyjs.org">Gatsby</a>
       <ResumeLink />
+      <SocialIcon url="http://linkedin.com/in/zachshirah/" />
+      <SocialIcon url="https://github.com/zashirah" />
     </StyledFooter>
   )
 }
