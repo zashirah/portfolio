@@ -23,12 +23,12 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      {/* <HomeContainer>
+      <HomeContainer>
         <SummaryHeadshotContainer>
           <Headshot />
           <ProfessionalSummary />
         </SummaryHeadshotContainer>
-      </HomeContainer> */}
+      </HomeContainer>
     </Layout>
   )
 }
