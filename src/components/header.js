@@ -5,11 +5,11 @@ import styled from "styled-components"
 
 const Nav = styled.div`
   // background: transparent;
-  max-width: 1080px;
+  max-width: 1440px;
 `
 
 const NavHeader = styled.header`
-  max-width: 1080px;
+  max-width: 1440px;
   width: 100%;
   padding: 25px 0px;
   position: fixed;
@@ -23,6 +23,7 @@ const NavHeader = styled.header`
 const NavLeft = styled.div`
   width: 50%;
   text-align: left;
+  padding-left: 25px;
 `
 
 const NavCenter = styled.div`
@@ -35,6 +36,7 @@ const NavRight = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-right: 25px;
 `
 
 const NavTitle = styled.h1`

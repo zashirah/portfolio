@@ -9,10 +9,12 @@ import AboutComponent from "../components/AboutComponent"
 
 
 const AboutPage = styled.div`
-  margin: 150px auto 0px auto;
+  margin: 100px auto 100px auto;
+  height: 80vh;
   display: flex;
   flex-direction: row;
-  /* width: 67%; */
+  align-items: center;
+  width: 90%;
 `
 
 const SkillsContainer = styled.div`

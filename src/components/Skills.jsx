@@ -14,7 +14,8 @@ const SkillsDiv = styled.div`
 `
 
 const SkillsTitle = styled.h1`
-  font-size: 72px;
+  font-size: 64px;
+  margin-bottom: 15px;
 `
 
 const IconContainer = styled.div`

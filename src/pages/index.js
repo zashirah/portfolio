@@ -10,6 +10,8 @@ import ProfessionalSummary from "../components/ProfessionalSummary"
 import styled from "styled-components"
 
 const HomeContainer = styled.div`
+  width: 1100px;
+  margin: 0 auto;
 `
 
 const SummaryHeadshotContainer = styled.div`

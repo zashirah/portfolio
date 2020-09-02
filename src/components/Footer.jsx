@@ -1,24 +1,49 @@
-import React from 'react'
+import React from "react"
 
 import styled from "styled-components"
-import { SocialIcon } from 'react-social-icons'
+import { SocialIcon } from "react-social-icons"
 
 import ResumeLink from "./ResumeLink"
 
 const StyledFooter = styled.footer`
   position: fixed;
   bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1440px;
+  width: 100%;
+  padding-bottom: 15px;
+`
+
+const LeftFooter = styled.div`
+  padding-left: 50px;
+`
+
+const RightFooter = styled.div`
+  padding-right: 150px;
+  width: 100px;
+  display: flex;
+
+`
+
+const SocialContainer = styled.div`
+  padding-left: 50px;
 `
 
 const Footer = () => {
   return (
     <StyledFooter>
-      © {new Date().getFullYear()}, Built with
-      {` `}
-      <a href="https://www.gatsbyjs.org">Gatsby</a>
-      <ResumeLink />
-      <SocialIcon url="http://linkedin.com/in/zachshirah/" />
-      <SocialIcon url="https://github.com/zashirah" />
+      <LeftFooter>
+        <ResumeLink />
+      </LeftFooter>
+      <RightFooter>
+        <SocialContainer>
+          <SocialIcon url="http://linkedin.com/in/zachshirah/" />
+        </SocialContainer>
+        <SocialContainer>
+          <SocialIcon url="https://github.com/zashirah" />
+        </SocialContainer>
+      </RightFooter>
     </StyledFooter>
   )
 }

@@ -6,11 +6,11 @@ import '../styles.css'
 
 const ProfessionalSummaryContainer = styled.div`
   // position: fixed;
-  height: 675px;
-  width: 675px;
+  height: 600px;
+  width: 600px;
   margin: 0 auto;
   padding: 100px;
-  font-size: 36px;
+  font-size: 32px;
   // font-size: calc(24px + 1vw);
   line-height: 150%;
   color: var(--olive);
@@ -21,8 +21,9 @@ const ProfessionalSummaryContainer = styled.div`
     content: "";
     height: 200px;
     width: 200px;
-    margin-right: 50px;
+    /* margin-right: 50px; */
     margin-bottom: 35px;
+    padding-bottom: 50px;
     float: left;
     shape-outside: circle(40%);
   }
