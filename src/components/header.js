@@ -9,17 +9,19 @@ const Nav = styled.div`
 `
 
 const NavHeader = styled.header`
-  /* background-color: var(--white); */
+  background-color: var(--white);
   max-width: 1440px;
   width: 100%;
   /* height: 10vh; */
-  padding: 25px 0px;
+  padding: 10px 0px;
   position: fixed;
   top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
+  z-index: 5;
+  box-shadow: 0px 1px 5px 1px var(--olive);
 `
 
 const NavLeft = styled.div`
