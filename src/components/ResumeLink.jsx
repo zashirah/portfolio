@@ -3,12 +3,13 @@ import React from 'react'
 import { Link } from "gatsby"
  
 import styled from "styled-components"
-
+import { motion } from "framer-motion"
+ 
 const StyledLink = styled(Link)`
   text-decoration: none;
 `
 
-const StyledButton = styled.button`
+const StyledButton = styled(motion.button)`
   background-color: var(--silver);
   height: 50px;
   /* width: 200px; */
@@ -34,7 +35,9 @@ const ResumeLink = () => {
         window.open(this.makeHref("route"))
       }}
     >
-      <StyledButton type="submit">Download my resume</StyledButton>
+      <StyledButton
+        whileHover={{ scale: 1.1 }}
+        type="submit">Download my resume</StyledButton>
     </StyledLink>
   )
 }

@@ -24,6 +24,8 @@ const projectCardsInfo = [
     skills: ["javascript", "html", "css"],
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum illum similique, impedit mollitia quaerat eos sit deleniti perferendis ipsa in quibusdam. Rem adipisci eligendi officiis asperiores dolore porro. Quasi, nobis?",
+    link: "https://pages.git.generalassemb.ly/zshirah/CityScore/",
+    githubLink: "https://git.generalassemb.ly/zshirah/CityScore",
   },
   {
     title: "2048 (clone)",
@@ -31,6 +33,8 @@ const projectCardsInfo = [
     skills: ["reactjs", "css"],
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum illum similique, impedit mollitia quaerat eos sit deleniti perferendis ipsa in quibusdam. Rem adipisci eligendi officiis asperiores dolore porro. Quasi, nobis?",
+    link: "https://2048-clone-zs.netlify.app/",
+    githubLink: "https://github.com/zashirah/2048-clone",
   },
   {
     title: "BARC Shelter",
@@ -38,6 +42,8 @@ const projectCardsInfo = [
     skills: ["reactjs", "mongodb", "css"],
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum illum similique, impedit mollitia quaerat eos sit deleniti perferendis ipsa in quibusdam. Rem adipisci eligendi officiis asperiores dolore porro. Quasi, nobis?",
+    link: "https://barc-shelter.netlify.app/",
+    githubLink: "https://github.com/zashirah/Barc-Shelter",
   },
 ]
 
@@ -47,6 +53,8 @@ const ProjectCardsJSX = projectCardsInfo.map(projectCard => (
     image={projectCard.image}
     skills={projectCard.skills}
     description={projectCard.description}
+    link={projectCard.link}
+    githubLink={projectCard.githubLink}
   />
 ))
 

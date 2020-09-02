@@ -2,7 +2,8 @@ import React from "react"
 
 import styled from "styled-components"
 import { SocialIcon } from "react-social-icons"
-
+import { motion } from "framer-motion"
+ 
 import ResumeLink from "./ResumeLink"
 
 const StyledFooter = styled.footer`
@@ -26,7 +27,7 @@ const RightFooter = styled.div`
 
 `
 
-const SocialContainer = styled.div`
+const SocialContainer = styled(motion.div)`
   padding-left: 50px;
 `
 
@@ -37,10 +38,10 @@ const Footer = () => {
         <ResumeLink />
       </LeftFooter>
       <RightFooter>
-        <SocialContainer>
+        <SocialContainer whileHover={{ scale: 1.1 }}>
           <SocialIcon url="http://linkedin.com/in/zachshirah/" />
         </SocialContainer>
-        <SocialContainer>
+        <SocialContainer whileHover={{ scale: 1.1 }}>
           <SocialIcon url="https://github.com/zashirah" />
         </SocialContainer>
       </RightFooter>

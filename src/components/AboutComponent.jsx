@@ -45,7 +45,7 @@ const AboutComponent = () => {
         Would love the opportunity to work with you.
       </AboutParagraph>
       <StyledLink to="/contact">
-        <CTAButton text={"Contact Me"} primary={false} />
+        <CTAButton text={"Contact Me"}/>
       </StyledLink>
       <AboutParagraph>Not sure yet?</AboutParagraph>
       <StyledLink to="/projects">

@@ -1,8 +1,9 @@
 import React from 'react'
 
 import styled, { css } from "styled-components"
+import { motion } from "framer-motion"
 
-const Button = styled.div`
+const Button = styled(motion.button)`
   background-color: var(--red);
   height: 75px;
   /* width: 200px; */
@@ -25,7 +26,11 @@ const Button = styled.div`
 `
 
 const CTAButton = ({ text, primary }) => {
-  return <Button primary={primary}>{text}</Button>
-}
+  return (
+  <Button
+    whileHover={{ scale: 1.1 }}
+    primary={primary}>{text}
+  </Button>
+)}
 
 export default CTAButton

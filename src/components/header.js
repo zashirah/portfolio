@@ -66,7 +66,9 @@ const Header = ({ siteTitle }) => (
       <NavCenter>
       </NavCenter>
       <NavRight>
-        <StyledLink to="/about">About Me</StyledLink>
+        <StyledLink
+          onHoverStart={() => {}}
+          to="/about">About Me</StyledLink>
         <StyledLink to="/projects">Projects</StyledLink>
         <StyledLink to="/contact">Contact</StyledLink>
       </NavRight>
