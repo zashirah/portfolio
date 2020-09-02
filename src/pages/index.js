@@ -16,6 +16,8 @@ const HomeContainer = styled.div`
 
 const SummaryHeadshotContainer = styled.div`
   padding-top: calc(50px + 10vh);
+  display: flex;
+  flex-direction: row;
 `
 
 const IndexPage = () => (

@@ -5,33 +5,30 @@ import styled from "styled-components"
 import '../styles.css'
 
 const ProfessionalSummaryContainer = styled.div`
-  // position: fixed;
-  height: 600px;
-  width: 600px;
+  height: 400px;
+  width: 400px;
   margin: 0 auto;
   padding: 100px;
-  font-size: 32px;
-  // font-size: calc(24px + 1vw);
+  font-size: 24px;
   line-height: 150%;
   color: var(--olive);
   background-color: var(--silver);
   border-radius: 100%;
   z-index: 0;
-  &:before {
+  /* &:before {
     content: "";
     height: 200px;
     width: 200px;
-    /* margin-right: 50px; */
     margin-bottom: 35px;
     padding-bottom: 50px;
     float: left;
     shape-outside: circle(40%);
-  }
+  } */
 `
 
 const ProfessionalSummaryContent = styled.p`
   text-align: center;
-  margin: 35px;
+  margin: 10px;
 `
 
 const ProfessionalSummary = () => {
