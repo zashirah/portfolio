@@ -1,7 +1,6 @@
 import React from "react"
 // import { Link } from "gatsby"
 
-
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Headshot from "../components/Headshot"
@@ -18,16 +17,18 @@ const SummaryHeadshotContainer = styled.div`
   padding-top: calc(50px + 10vh);
 `
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <HomeContainer>
-      <SummaryHeadshotContainer>
-        <Headshot />
-        <ProfessionalSummary />
-      </SummaryHeadshotContainer>
-    </HomeContainer>
-  </Layout>
-)
+const IndexPage = () => {
+  return (
+    <Layout>
+      <SEO title="Home" />
+      <HomeContainer>
+        <SummaryHeadshotContainer>
+          <Headshot />
+          <ProfessionalSummary />
+        </SummaryHeadshotContainer>
+      </HomeContainer>
+    </Layout>
+  )
+}
 
 export default IndexPage
