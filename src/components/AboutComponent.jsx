@@ -14,12 +14,12 @@ const AboutDiv = styled.div`
 `
 
 const AboutHeader = styled.h1`
-  font-size: 64px;
+  font-size: 56px;
   margin-bottom: 15px;
 `
 
 const AboutParagraph = styled.p`
-  font-size: 24px;
+  font-size: 18px;
   text-align: center;
 `
 
