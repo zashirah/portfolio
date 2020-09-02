@@ -18,6 +18,9 @@ const ProjectCards = () => {
   return (
     <ProjectCardsContainer>
       <ProjectCard />
+      <ProjectCard />
+      <ProjectCard />
+      <ProjectCard />
     </ProjectCardsContainer>
   )
 }

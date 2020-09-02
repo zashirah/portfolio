@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react"
 
 import Icon from "./Icon"
 
 import styled from "styled-components"
 
-import iconPathArray from "../assets/icons"
+import iconPathArray from "../assets/icons2"
 
 const SkillsDiv = styled.div`
   display: flex;
@@ -25,10 +25,27 @@ const IconContainer = styled.div`
 `
 
 const Skills = () => {
+  const skillsArray = [
+    "css",
+    "html",
+    "nodejs",
+    "reactjs",
+    "mongodb",
+    "python",
+    "r",
+    "sas",
+    "tableau",
+    "salesforce",
+    "jupyter",
+  ]
 
-  const IconsJSX = iconPathArray.map(iconPath => 
-    <Icon iconPath={iconPath}/>
-  )
+  console.log(iconPathArray)
+
+  const IconsJSX = skillsArray.map(skill => {
+    let icon = iconPathArray.find(iconPath => iconPath.name === skill)
+    console.log(icon.jsx)
+    return <Icon iconPath={icon.jsx} />
+  })
 
   return (
     <SkillsDiv>
