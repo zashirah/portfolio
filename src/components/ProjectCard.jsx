@@ -95,14 +95,11 @@ const StyledLink = styled(Link)`
 `
 
 const ProjectCard = ({ title, image, skills, description, link, githubLink }) => {
-  // console.log(skills)
   const [hovered, setHovered] = useState(false)
 
-  const IconsJSX = skills.map(skill => {
-    console.log(skill)
+  const IconsJSX = skills.map((skill, index) => {
     let icon = iconPathArray.find(iconPath => iconPath.name === skill)
-    console.log(icon.jsx)
-    return <Icon iconPath={icon.jsx} />
+    return <Icon iconPath={icon.jsx} key={index}/>
   })
 
   return (
@@ -115,10 +112,7 @@ const ProjectCard = ({ title, image, skills, description, link, githubLink }) =>
       <CardLeft>
         <CardTitle>{title}</CardTitle>
         <CardDescription>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium
-          dolorem laboriosam impedit, doloremque sunt facilis, dolor ullam
-          itaque nam corrupti porro, possimus sequi excepturi sint eligendi
-          dolorum cupiditate quia accusamus?
+          {description}
         </CardDescription>
         <CardSkills>{IconsJSX}</CardSkills>
       </CardLeft>
