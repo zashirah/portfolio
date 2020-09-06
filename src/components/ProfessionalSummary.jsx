@@ -31,15 +31,10 @@ const ProfessionalSummaryContent = styled.p`
   margin: 10px;
 `
 
-const ProfessionalSummary = () => {
+const ProfessionalSummary = ({ children }) => {
   return (
     <ProfessionalSummaryContainer>
-      <ProfessionalSummaryContent>
-        I’m a data analyst and consultant turned <i>SOFTWARE ENGINEER</i> that
-        loves to keep up with modern technology and design powerful tools. I’m
-        looking to join a collaborative engineering team that challenges itself
-        to grow and stay up to date in engineering tactics and technologies.
-      </ProfessionalSummaryContent>
+      <ProfessionalSummaryContent>{children}</ProfessionalSummaryContent>
     </ProfessionalSummaryContainer>
   )
 }

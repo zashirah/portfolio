@@ -3,8 +3,8 @@ import React from "react"
 import styled from "styled-components"
 
 const IconDiv = styled.div`
-  height: 75px;
-  width: 75px;
+  height: 50px;
+  width: 50px;
   padding: 5%;
 `
 

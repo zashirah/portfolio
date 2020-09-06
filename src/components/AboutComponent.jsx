@@ -14,7 +14,7 @@ const AboutDiv = styled.div`
 `
 
 const AboutHeader = styled.h1`
-  font-size: 56px;
+  font-size: 48px;
   margin-bottom: 15px;
 `
 
@@ -27,29 +27,18 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `
 
-const AboutComponent = () => {
+const AboutComponent = ({ info }) => {
   return (
     <AboutDiv>
-      <AboutHeader>About</AboutHeader>
-      <AboutParagraph>
-        I am a Software Engineer with a wide variety of technology experience
-        from data analytics and data science to sales operations consulting.
-        Throughout my career, I have always found the most satisfaction when I
-        was building something with code, so I left my consulting job behind and
-        to take on Software Engineering. Due to the nature of my background, I
-        know the level of involvement needed for a successful software project.
-        I'm excited to join a Software Engineering team that constantly
-        challenges itself to build the best tool possible.
-      </AboutParagraph>
-      <AboutParagraph>
-        Would love the opportunity to work with you.
-      </AboutParagraph>
+      <AboutHeader>{info.title}</AboutHeader>
+      <AboutParagraph>{info.paragraph}</AboutParagraph>
+      <AboutParagraph>{info.cta1}</AboutParagraph>
       <StyledLink to="/contact">
-        <CTAButton text={"Contact Me"}/>
+        <CTAButton text={info.cta1ButtonText} />
       </StyledLink>
-      <AboutParagraph>Not sure yet?</AboutParagraph>
+      <AboutParagraph>{info.cta2}</AboutParagraph>
       <StyledLink to="/projects">
-        <CTAButton text={"Check out my Projects"} primary={"primary"} />
+        <CTAButton text={info.cta2ButtonText} primary={"primary"} />
       </StyledLink>
       {/* <ResumeLink /> */}
     </AboutDiv>

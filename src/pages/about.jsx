@@ -7,6 +7,7 @@ import SEO from "../components/seo"
 import Skills from "../components/Skills"
 import AboutComponent from "../components/AboutComponent"
 
+import {AboutMeText} from "../content/about"
 
 const AboutPage = styled.div`
   margin: 100px auto 100px auto;
@@ -18,7 +19,7 @@ const AboutPage = styled.div`
 `
 
 const SkillsContainer = styled.div`
-  width: 30%;
+  width: 20%;
 `
 
 const SpacingContainer = styled.div`
@@ -26,7 +27,7 @@ const SpacingContainer = styled.div`
 `
 
 const AboutContainer = styled.div`
-  width: 65%;
+  width: 75%;
 `
 
 const About = () => {
@@ -35,7 +36,7 @@ const About = () => {
       <SEO title="About" />
       <AboutPage>
         <AboutContainer>
-          <AboutComponent />
+          <AboutComponent info={AboutMeText}/>
         </AboutContainer>
         <SpacingContainer />
         <SkillsContainer>

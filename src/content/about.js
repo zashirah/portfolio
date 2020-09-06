@@ -1,2 +1,17 @@
 import React from "react"
 
+export const AboutMeText = {
+  title: `About`,
+  paragraph: `I am a Software Engineer with a wide variety of technology experience
+        from data analytics and data science to sales operations consulting.
+        Throughout my career, I have always found the most satisfaction when I
+        was building something with code, so I left my consulting job behind and
+        to take on Software Engineering. Due to the nature of my background, I
+        know the level of involvement needed for a successful software project.
+        I'm excited to join a Software Engineering team that constantly
+        challenges itself to build the best tool possible.`,
+  cta1: `Would love the opportunity to work with you.`,
+  cta1ButtonText: `Contact Me`,
+  cta2: `Not sure yet?`,
+  cta2ButtonText: `Check out my projects`
+}
