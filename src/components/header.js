@@ -1,7 +1,8 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
+import { motion } from "framer-motion"
 
 const Nav = styled.div`
   /* background-color: var(--white); */
@@ -36,47 +37,61 @@ const NavCenter = styled.div`
 
 const NavRight = styled.div`
   width: 33%;
-  // text-align: right;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding-right: 25px;
 `
 
-const NavTitle = styled.h1`
-  // margin: 0;
-`
+const NavTitle = styled.h1``
 const TitleLink = styled(Link)`
   color: var(--olive);
   text-decoration: none;
+  &&:hover {
+    text-decoration: underline;
+  }
 `
 
 const StyledLink = styled(Link)`
   color: var(--olive);
   text-decoration: none;
   font-size: 24px;
+  &&:hover {
+    text-decoration: underline;
+  }
 `
 
-const Header = ({ siteTitle }) => (
-  <Nav>
-    <NavHeader>
-      <NavLeft>
-        <NavTitle>
-          <TitleLink to="/">{siteTitle}</TitleLink>
-        </NavTitle>
-      </NavLeft>
-      <NavCenter>
-      </NavCenter>
-      <NavRight>
-        <StyledLink
-          onHoverStart={() => {}}
-          to="/about">About Me</StyledLink>
-        <StyledLink to="/projects">Projects</StyledLink>
-        <StyledLink to="/contact">Contact</StyledLink>
-      </NavRight>
-    </NavHeader>
-  </Nav>
-)
+const Header = ({ siteTitle }) => {
+  return (
+    <Nav>
+      <NavHeader>
+        <NavLeft>
+          <NavTitle>
+            <TitleLink to="/">{siteTitle}</TitleLink>
+          </NavTitle>
+        </NavLeft>
+        <NavCenter></NavCenter>
+        <NavRight>
+          <StyledLink
+            to="/about"
+          >
+            About Me
+          </StyledLink>
+          <StyledLink
+            to="/projects"
+          >
+            Projects
+          </StyledLink>
+          <StyledLink
+            to="/contact"
+          >
+            Contact
+          </StyledLink>
+        </NavRight>
+      </NavHeader>
+    </Nav>
+  )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

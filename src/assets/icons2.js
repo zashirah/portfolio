@@ -4,6 +4,9 @@ import jupyterNotebookLogo from "../images/1024px-Jupyter_logo.svg.png"
 import salesforceLogo from "../images/1280px-Salesforce_logo.svg.png"
 import tableauLogo from "../images/1300px_Tableau_Software_logo-1024x704.png"
 
+const height = "50px"
+const width = "50px"
+
 const iconPathArray = [
   {
     name: "css",
@@ -101,7 +104,7 @@ const iconPathArray = [
     name: "r",
     jsx: (
       <img
-        style={{ height: "100px", width: "100px" }}
+        style={{ height: height, width: width }}
         src="https://rstudio.com/wp-content/uploads/2014/06/RStudio-Ball.png"
         alt="R studo logo"
       />
@@ -111,7 +114,7 @@ const iconPathArray = [
     name: "sas",
     jsx: (
       <img
-        style={{ height: "100px", width: "100px" }}
+        style={{ height: height, width: width }}
         src="https://logoeps.com/wp-content/uploads/2013/12/sas-vector-logo.png"
         alt="SAS logo"
       />
@@ -121,7 +124,7 @@ const iconPathArray = [
     name: "jupyter",
     jsx: (
       <img
-        style={{ height: "100px", width: "100px" }}
+        style={{ height: height, width: width }}
         src={jupyterNotebookLogo}
         alt="Juspyter Notebook logo"
       />
@@ -131,7 +134,7 @@ const iconPathArray = [
     name: "tableau",
     jsx: (
       <img
-        style={{ height: "100px", width: "100px", objectFit: "cover" }}
+        style={{ height: height, width: width, objectFit: "cover" }}
         src={tableauLogo}
         alt="Tableau logo"
       />
@@ -141,7 +144,7 @@ const iconPathArray = [
     name: "salesforce",
     jsx: (
       <img
-        style={{ height: "100px", width: "100px", objectFit: "contain" }}
+        style={{ height: height, width: width, objectFit: "contain" }}
         src={salesforceLogo}
         alt="Salesforce logo"
       />
@@ -161,9 +164,7 @@ const iconPathArray = [
   {
     name: "gatsbyjs",
     jsx: (
-      <svg
-        viewBox="0 0 256 256"
-      >
+      <svg viewBox="0 0 256 256">
         <g>
           <path
             d="M128,0 C57.3075981,0 0,57.307374 0,128 C0,198.69285 57.3078221,256 128,256 C198.69285,256 256,198.692626 256,128 C256,57.307374 198.69285,0 128,0 Z M27.503973,129.334313 L126.665463,228.496027 C72.2144512,227.786305 28.2134711,183.785325 27.503973,129.334313 Z M150.496265,225.983324 L30.0166761,105.503735 C40.2328216,60.8232766 80.2223482,27.4871709 128,27.4871709 C161.397489,27.4871709 190.984927,43.7800881 209.262736,68.8464075 L195.346089,81.125855 C180.519662,59.8637627 155.886614,45.9486835 128,45.9486835 C92.4948508,45.9486835 62.259523,68.5011796 50.8311596,100.061636 L155.938588,205.169064 C181.463942,195.925651 201.095107,174.378594 207.669894,147.692325 L164.102633,147.692325 L164.102633,128.000224 L210.051317,128.000224 L210.051317,127.999776 L228.512829,127.999776 L228.512829,128 C228.512829,175.777652 195.176947,215.767178 150.496265,225.983324 Z"

@@ -1,30 +1,33 @@
 import React from "react"
+import styled from "styled-components"
 // import { Link } from "gatsby"
+
 import "../styles.css"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import IndexComponent from "../components/IndexComponent"
-// import Headshot from "../components/Headshot"
-// import ProfessionalSummary from "../components/ProfessionalSummary"
+import Headshot from "../components/Headshot"
+import ProfessionalSummary from "../components/ProfessionalSummary"
 
-// import styled from "styled-components"
+import { ProfessionalSummaryText } from "../content/home";
 
-// const SummaryHeadshotContainer = styled.div`
-//   padding-top: calc(50px + 10vh);
-//   display: flex;
-//   flex-direction: row;
-// `
+
+const SummaryHeadshotContainer = styled.div`
+  padding-top: calc(50px + 10vh);
+  display: flex;
+  flex-direction: row;
+`
 
 const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-        <IndexComponent />
-        {/* <SummaryHeadshotContainer>
-          <Headshot />
-          <ProfessionalSummary />
-        </SummaryHeadshotContainer> */}
+      <SummaryHeadshotContainer>
+        <Headshot />
+        <ProfessionalSummary>
+          <ProfessionalSummaryText />
+        </ProfessionalSummary>
+      </SummaryHeadshotContainer>
     </Layout>
   )
 }
