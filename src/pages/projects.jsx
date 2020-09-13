@@ -8,7 +8,7 @@ import ProjectCard from "../components/ProjectCard"
 import { ProjectInfo } from "../content/projects"
 
 const ProjectCardsContainer = styled.div`
-  padding-top: 150px;
+  padding-top: 100px;
   /* min-height: 1000px; */
   /* height: 85vh; */
   display: flex;

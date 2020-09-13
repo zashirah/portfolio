@@ -48,4 +48,19 @@ export const ProjectInfo = [
     link: "https://barc-shelter.netlify.app/",
     githubLink: "https://github.com/zashirah/Barc-Shelter",
   },
+  {
+    title: `Portfolio`,
+    image: image,
+    description: (
+      <>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit.Odit voluptatum
+        magni delectus maxime eveniet dolorum voluptatem odio illo error.Dolorum
+        suscipit beatae, nostrum doloribus quaerat consectetur ut facere sint
+        doloremque.
+      </>
+    ),
+    skills: ["gatsbyjs", "reactjs", "css"],
+    link: "https://barc-shelter.netlify.app/",
+    githubLink: "https://github.com/zashirah/Barc-Shelter",
+  },
 ]
