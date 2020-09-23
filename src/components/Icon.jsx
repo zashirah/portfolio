@@ -3,14 +3,14 @@ import React from "react"
 import styled from "styled-components"
 
 const IconDiv = styled.div`
-  height: 50px;
-  width: 50px;
-  padding: 5%;
+  height: ${props => (props.bigger ? "75px" : "50px")};
+  width: ${props => (props.bigger ? "75px" : "50px")};
+  padding: 10px;
 `
 
-const Icon = ({ iconPath }) => {
+const Icon = ({ iconPath, bigger }) => {
   return (
-    <IconDiv>
+    <IconDiv bigger={bigger}>  
       {/* <svg viewBox="0 0 128 128"> */}
         {iconPath}
       {/* </svg> */}

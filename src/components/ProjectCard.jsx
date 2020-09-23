@@ -32,6 +32,7 @@ const CardLeft = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  /* align-items: center; */
 `
 
 const CardTitle = styled.h1`
@@ -43,6 +44,37 @@ const CardTitle = styled.h1`
 const CardDescription = styled.p`
   margin: 0px;
   padding: 0px 5px;
+`
+
+const Buttons = styled.div`
+  /* width: 100%; */
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0px;
+  margin: 0px;
+`
+
+const ButtonLink = styled(motion.button)`
+  font-size: 18px;
+  background-color: var(--red);
+  width: 150px;
+  height: 50px;
+  /* left: calc(50% - 75px); */
+  border-radius: 15px;
+  border: none;
+  padding: 2px;
+  margin: 10px;
+  box-shadow: 0px 1px 5px 1px var(--olive);
+  /* @media (max-width: 1024px) {
+    font-size: 14px;
+    width: 100px;
+  } */
+`
+
+const StyledLink = styled.a`
+  text-decoration: none;
+  padding: 0px;
+  margin: 0px;
 `
 
 const CardSkills = styled.div`
@@ -62,76 +94,61 @@ const CardImage = styled.img`
   width: 100%;
   height: 100%;
   border-radius: 15px;
-  object-fit: cover;
-  ${props =>
+  /* object-fit: fill; */
+  object-fit: contain;
+  /* ${props =>
     props.primary &&
     css`
       opacity: 75%;
-    `}
+    `} */
 `
 
-const ButtonLink = styled(motion.button)`
-  position: absolute;
-  font-size: 18px;
-  background-color: var(--red);
-  width: 150px;
-  left: calc(50% - 75px);
-  border-radius: 15px;
-  border: none;
-  padding: 2px;
-  box-shadow: 0px 1px 5px 1px var(--olive);
-`
-
-const ButtonLinkToSite = styled(ButtonLink)`
-  top: 35%;
-`
-
-const ButtonLinkToGit = styled(ButtonLink)`
-  top: 65%;
-`
-
-const StyledLink = styled(Link)`
-  text-decoration: none;
-`
-
-const ProjectCard = ({ title, image, skills, description, link, githubLink }) => {
+const ProjectCard = ({
+  title,
+  image,
+  skills,
+  description,
+  link,
+  githubLink,
+}) => {
   const [hovered, setHovered] = useState(false)
 
   const IconsJSX = skills.map((skill, index) => {
     let icon = iconPathArray.find(iconPath => iconPath.name === skill)
-    return <Icon iconPath={icon.jsx} key={index}/>
+    return <Icon bigger="bigger" iconPath={icon.jsx} key={index} />
   })
 
   return (
     <CardContainer
-      whileHover={{ scale: 1.1 }}
-      onHoverStart={() => setHovered(true)}
-      onHoverEnd={() => setHovered(false)}
-      primary={hovered && "primary"}
+    // whileHover={{ scale: 1.1 }}
+    // onHoverStart={() => setHovered(true)}
+    // onHoverEnd={() => setHovered(false)}
+    // primary={hovered && "primary"}
     >
       <CardLeft>
         <CardTitle>{title}</CardTitle>
-        <CardDescription>
-          {description}
-        </CardDescription>
+        <CardDescription>{description}</CardDescription>
         <CardSkills>{IconsJSX}</CardSkills>
+        <Buttons>
+          <StyledLink href={link}>
+            <ButtonLink whileHover={{ scale: 1.1 }}>
+              Go to the Site
+            </ButtonLink>
+          </StyledLink>
+          <StyledLink href={githubLink}>
+            <ButtonLink whileHover={{ scale: 1.1 }}>
+              Go to the GitHub Repo
+            </ButtonLink>
+          </StyledLink>
+          {/* <StyledLink href={githubLink}>
+            <ButtonLink whileHover={{ scale: 1.1 }}>
+              Check out a quick demo video
+            </ButtonLink>
+          </StyledLink> */}
+        </Buttons>
       </CardLeft>
       <CardRight>
         <CardImage src={image} primary={hovered && "primary"}></CardImage>
-        {hovered && (
-          <StyledLink to={link}>
-            <ButtonLinkToSite whileHover={{ scale: 1.1 }}>
-              Check out the site!
-            </ButtonLinkToSite>
-          </StyledLink>
-        )}
-        {hovered && (
-          <StyledLink to={githubLink}>
-            <ButtonLinkToGit whileHover={{ scale: 1.1 }}>
-              Check out the GitHub Repo!
-            </ButtonLinkToGit>
-          </StyledLink>
-        )}
       </CardRight>
     </CardContainer>
   )
