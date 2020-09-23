@@ -27,12 +27,14 @@ export const SkillsArray = [
   "nodejs",
   "reactjs",
   "mongodb",
+  "gatsbyjs",
+  "ruby",
+  "rails",
   "python",
   "r",
   "sas",
   "tableau",
   "salesforce",
   "jupyter",
-  "gatsbyjs"
 ]
 

@@ -14,7 +14,7 @@ const NavHeader = styled.header`
   max-width: 1440px;
   width: 100%;
   /* height: 10vh; */
-  padding: 10px 0px;
+  /* padding: 10px 0px; */
   position: fixed;
   top: 0;
   display: flex;
@@ -26,17 +26,17 @@ const NavHeader = styled.header`
 `
 
 const NavLeft = styled.div`
-  width: 50%;
+  width: 55%;
   text-align: left;
   padding-left: 25px;
 `
 
 const NavCenter = styled.div`
-  width: 17%;
+  width: 8%;
 `
 
 const NavRight = styled.div`
-  width: 33%;
+  width: 37%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

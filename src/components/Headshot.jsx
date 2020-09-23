@@ -11,6 +11,7 @@ const HeadshotContainer = styled.div`
   padding: 0;
   z-index: 1;
   background-color: var(--siver);
+  padding-left: 7%;
 `
 
 const HeadshotImage = styled.img`

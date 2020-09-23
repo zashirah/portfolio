@@ -31,6 +31,18 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`,
-    `gatsby-plugin-styled-components`
+    `gatsby-plugin-styled-components`,
+    // {
+    //   resolve: `gatsby-source-airtable`,
+    //   options: {
+    //     apiKey: process.env.GATSBY_AIRTABLE_API_KEY,
+    //     tables: [
+    //       {
+    //         baseId: `appWDACYToaV5KQoy`,
+    //         tableName: `contactInfo`,
+    //       },
+    //     ],
+    //   },
+    // },
   ],
 }
