@@ -21,6 +21,9 @@ const Background = styled.div`
   max-width: 1440px;
   margin: 0 auto;
 `
+const Site = styled.div`
+  /* min-height: 100vh; */
+`
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -34,7 +37,7 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <div>
+    <Site>
       <Background>
         <Header siteTitle={data.site.siteMetadata.title} />
       </Background>
@@ -43,14 +46,8 @@ const Layout = ({ children }) => {
       </Background>
       <Background>
         <Footer />
-        {/* <footer style={{ position: "fixed", bottom: 0 }}>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-          <ResumeLink />
-        </footer> */}
       </Background>
-    </div>
+    </Site>
   )
 }
 

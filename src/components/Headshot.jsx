@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react"
 
-import styled from 'styled-components'
+import styled from "styled-components"
 
 import headshotImage from "../images/headshot.png"
 
@@ -12,6 +12,14 @@ const HeadshotContainer = styled.div`
   z-index: 1;
   background-color: var(--siver);
   padding-left: 7%;
+  @media (max-width: 1024px) {
+    width: 200px;
+    height: 200px;
+    padding-top: 75px;
+  }
+  @media (max-width: 750px) {
+    /* display: none; */
+  }
 `
 
 const HeadshotImage = styled.img`
@@ -23,6 +31,13 @@ const HeadshotImage = styled.img`
   /* min-height: 350px; */
   background-color: var(--siver);
   /* width: 500px; */
+  @media (max-width: 1024px) {
+    width: 200px;
+    height: 200px;
+  }
+  @media (max-width: 750px) {
+    /* display: none; */
+  }
 `
 
 const Headshot = () => {
