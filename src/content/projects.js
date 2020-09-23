@@ -13,10 +13,18 @@ export const ProjectInfo = [
     image: eplSurvivor,
     description: (
       <>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit.Odit voluptatum
-        magni delectus maxime eveniet dolorum voluptatem odio illo error.Dolorum
-        suscipit beatae, nostrum doloribus quaerat consectetur ut facere sint
-        doloremque.
+        <p>
+          Premier League Survivor is a full stack Ruby on Rails with React front
+          end project.
+        </p>
+        <p>
+          A user can create an account then join and/or create leagues. Once
+          within a league, users compete with other members by picking a club to
+          win each week. You can only pick each team twice in a single season.
+          There are 20 teams. And 38 matchweeks. So only 2 of the possible 40
+          selections won't be made in a single season.If the pick wins their
+          match, the user gets 3 points; 1 point with a draw and 0 with a loss.
+        </p>
       </>
     ),
     skills: ["reactjs", "ruby", "rails"],
@@ -28,10 +36,21 @@ export const ProjectInfo = [
     image: clone2048,
     description: (
       <>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit.Odit voluptatum
-        magni delectus maxime eveniet dolorum voluptatem odio illo error.Dolorum
-        suscipit beatae, nostrum doloribus quaerat consectetur ut facere sint
-        doloremque.
+        <p>
+          2048 clone is a clone of a classic iPhone game called 2048 built using
+          React.
+        </p>
+        <p>
+          2048 allows a user to play 2048 and save there score to the
+          leaderboard with a username. If the score breaks the top 10, it will
+          appear on the leaderboard.
+        </p>
+        <p>
+          You play the game by combining the numbered squares together by moving
+          all the tiles up, down, left, or right. If you swipe up, all squares
+          will go up. If two numbers are the same and make contact in the swipe
+          direction, those numbers combine. (More details in the app)
+        </p>
       </>
     ),
     skills: ["reactjs"],
@@ -43,12 +62,17 @@ export const ProjectInfo = [
     image: CityScore,
     description: (
       <>
-        City Score is a single page web app built with vanilla javascript, css,
-        and html. The user can select a continent then a city from that
-        continent to display information related to the cityies quality of life
-        scores (provided by the Teleport api). On mobile, a user can only look
-        at one city at a time, but on desktop and tablet, they can look at 2
-        cities side by side.
+        <p>
+          City Score is a single page web app built with vanilla javascript,
+          css, and html.
+        </p>
+        <p>
+          The user can select a continent then a city from that continent to
+          display information related to the cityies quality of life scores
+          (provided by the Teleport api). On mobile, a user can only look at one
+          city at a time, but on desktop and tablet, they can look at 2 cities
+          side by side.
+        </p>
       </>
     ),
     skills: ["javascript", "html", "css"],
@@ -60,29 +84,36 @@ export const ProjectInfo = [
     image: barcShelter,
     description: (
       <>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit.Odit voluptatum
-        magni delectus maxime eveniet dolorum voluptatem odio illo error.Dolorum
-        suscipit beatae, nostrum doloribus quaerat consectetur ut facere sint
-        doloremque.
+        <p>
+          BARC Shelter is a full stack express, node, react, and mongoDB team
+          project. Our team is made up of 4 Software Engineers and 3 UX
+          designers. We worked together virtually over Zoom, using Github to
+          centralize our work, and completed the project over a week.
+        </p>
+        <p>
+          The UX teams designs were intended to make the user experience better
+          when search for pets to adopt and applying for pets. We followed there
+          designs and added a form to allow users to apply online instead of
+          having to print off and form and call to make an appointment.
+        </p>
       </>
     ),
     skills: ["reactjs", "mongodb"],
     link: "https://barc-shelter.netlify.app/",
     githubLink: "https://github.com/zashirah/Barc-Shelter",
   },
-  {
-    title: `Portfolio`,
-    image: portfolio,
-    description: (
-      <>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit.Odit voluptatum
-        magni delectus maxime eveniet dolorum voluptatem odio illo error.Dolorum
-        suscipit beatae, nostrum doloribus quaerat consectetur ut facere sint
-        doloremque.
-      </>
-    ),
-    skills: ["gatsbyjs", "reactjs"],
-    link: "https://barc-shelter.netlify.app/",
-    githubLink: "https://github.com/zashirah/Barc-Shelter",
-  },
+  // {
+  //   title: `Portfolio`,
+  //   image: portfolio,
+  //   description: (
+  //     <>
+  //       <p>
+  //         My portfolio is built using Gatsby 
+  //       </p>
+  //     </>
+  //   ),
+  //   skills: ["gatsbyjs", "reactjs"],
+  //   link: "https://barc-shelter.netlify.app/",
+  //   githubLink: "https://github.com/zashirah/Barc-Shelter",
+  // },
 ]

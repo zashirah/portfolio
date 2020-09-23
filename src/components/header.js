@@ -14,7 +14,7 @@ const NavHeader = styled.header`
   max-width: 1440px;
   width: 100%;
   /* height: 10vh; */
-  padding: 10px 0px;
+  /* padding: 10px 0px; */
   position: fixed;
   top: 0;
   display: flex;
