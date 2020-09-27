@@ -43,7 +43,11 @@ const NavRight = styled.div`
   padding-right: 25px;
 `
 
-const NavTitle = styled.h1``
+const NavTitle = styled.h1`
+  @media (max-width: 1000px) {
+    font-size: 20px;
+  }
+`
 const TitleLink = styled(Link)`
   color: var(--olive);
   text-decoration: none;
@@ -58,6 +62,9 @@ const StyledLink = styled(Link)`
   font-size: 24px;
   &&:hover {
     text-decoration: underline;
+  }
+  @media (max-width: 1000px) {
+    font-size: 18px;
   }
 `
 

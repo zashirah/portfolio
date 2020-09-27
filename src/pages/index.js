@@ -53,7 +53,7 @@ const Right = styled.div`
 
 const IndexPage = ({ siteTitle }) => {
   return (
-    <Layout>
+    <Layout sticky={true}>
       <SEO title="Home" />
       <HomeContainer>
 

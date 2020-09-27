@@ -33,7 +33,7 @@ const ProjectCardsContainer = styled.div`
 
 const projects = () => {
   return (
-    <Layout>
+    <Layout sticky={true}>
       <ProjectCardsContainer>
         <ProjectCarousel ProjectInfo={ProjectInfo} />
       </ProjectCardsContainer>

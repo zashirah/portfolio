@@ -11,11 +11,21 @@ const SkillsDiv = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (max-width: 768px) {
+    flex-direction: row;
+    padding-top: 25px;
+  }
 `
 
 const SkillsTitle = styled.h1`
   font-size: 48px;
   margin-bottom: 15px;
+  @media (max-width: 1200px) {
+    font-size: 36px;
+  }
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
 
 const IconContainer = styled.div`

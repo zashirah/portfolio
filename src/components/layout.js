@@ -12,6 +12,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 
 import Footer from "./Footer"
+import StickyFooter from "./StickyFooter"
 
 import Header from "./header"
 // import "./layout.css"
@@ -25,7 +26,7 @@ const Site = styled.div`
   /* min-height: 100vh; */
 `
 
-const Layout = ({ children }) => {
+const Layout = ({ children, sticky }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -45,7 +46,8 @@ const Layout = ({ children }) => {
         <main>{children}</main>
       </Background>
       <Background>
-        <Footer />
+        {!sticky && <Footer />}
+        {sticky && <StickyFooter />}
       </Background>
     </Site>
   )

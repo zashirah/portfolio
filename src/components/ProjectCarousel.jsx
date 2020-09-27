@@ -17,6 +17,10 @@ const CarouselContainer = styled.div`
   align-items: center;
   padding-left: 100px;
   padding-right: 100px;
+  @media (max-width: 767px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
 `
 
 const ArrowButton = styled.button`
@@ -37,6 +41,14 @@ const RightArrow = styled(ArrowheadRightOutline)`
     height: 85px;
     width: 85px;
   }
+  @media (max-width: 767px) {
+    height: 25px;
+    width: 25px;
+    &&:hover {
+      height: 25px;
+      width: 25px;
+    }
+  }
 `
 
 const LeftArrow = styled(ArrowheadLeftOutline)`
@@ -47,6 +59,14 @@ const LeftArrow = styled(ArrowheadLeftOutline)`
   &&:hover {
     height: 85px;
     width: 85px;
+  }
+  @media (max-width: 767px) {
+    height: 25px;
+    width: 25px;
+    &&:hover {
+      height: 25px;
+      width: 25px;
+    }
   }
 `
 

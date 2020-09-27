@@ -24,6 +24,16 @@ const CardContainer = styled(motion.div)`
     css`
       box-shadow: 0px 5px 15px 1px var(--olive);
     `}
+  @media (max-width: 425px) {
+    flex-direction: column;
+    height: 70vh;
+    width: 70vw;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    margin: 0 10px 0px 10px;
+    /* margin-right: 10px; */
+  }
 `
 
 const CardLeft = styled.div`
@@ -33,17 +43,29 @@ const CardLeft = styled.div`
   flex-direction: column;
   justify-content: space-between;
   /* align-items: center; */
+  @media (max-width: 425px) {
+    width: 100%;
+  }
 `
 
 const CardTitle = styled.h1`
   text-align: center;
   margin-top: 0px;
   margin-bottom: 10px;
+  @media (max-width: 1024px) {
+    font-size: 18px;
+  }
 `
 
 const CardDescription = styled.p`
   margin: 0px;
   padding: 0px 5px;
+  @media (max-width: 1024px) {
+    font-size: 12px;
+  }
+  @media (max-width: 767px) {
+    font-size: 10px;
+  }
 `
 
 const Buttons = styled.div`
@@ -65,10 +87,18 @@ const ButtonLink = styled(motion.button)`
   padding: 2px;
   margin: 10px;
   box-shadow: 0px 1px 5px 1px var(--olive);
-  /* @media (max-width: 1024px) {
+  @media (max-width: 1024px) {
     font-size: 14px;
+    /* height: 30px; */
+    width: 120px;
+    /* width: 100px; */
+  }
+  @media (max-width: 767px) {
+    font-size: 8px;
+    height: 20px;
     width: 100px;
-  } */
+    /* width: 100px; */
+  }
 `
 
 const StyledLink = styled.a`
@@ -88,6 +118,13 @@ const CardRight = styled.div`
   width: 40%;
   height: 100%;
   position: relative;
+  @media (max-width: 425px) {
+    order: -1;
+    width: 100%;
+    height: 20vh;
+    padding: 0;
+    margin: 0;
+  }
 `
 
 const CardImage = styled.img`
@@ -101,6 +138,11 @@ const CardImage = styled.img`
     css`
       opacity: 75%;
     `} */
+  @media (max-width: 425px) {
+    /* height: 60%; */
+    padding: 0;
+    margin: 0;
+  }
 `
 
 const ProjectCard = ({
