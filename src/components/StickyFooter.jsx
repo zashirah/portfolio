@@ -30,6 +30,7 @@ const RightFooter = styled.div`
   padding-right: 150px;
   width: 100px;
   display: flex;
+  align-items: center;
   @media (max-width: 767px) {
     padding-right: 10px;
     width: 60%;
