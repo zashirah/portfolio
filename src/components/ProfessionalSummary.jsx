@@ -15,15 +15,15 @@ const ProfessionalSummaryContainer = styled.div`
   background-color: var(--silver);
   border-radius: 100%;
   z-index: 0;
-  /* &:before {
-    content: "";
-    height: 200px;
-    width: 200px;
-    margin-bottom: 35px;
-    padding-bottom: 50px;
-    float: left;
-    shape-outside: circle(40%);
-  } */
+  @media (max-width: 1110px) {
+    height: 350px;
+    width: 350px;
+    font-size: 20px;
+    padding: 85px;
+  }
+  @media (max-width: 750px) {
+    display: none;
+  }
 `
 
 const ProfessionalSummaryContent = styled.p`

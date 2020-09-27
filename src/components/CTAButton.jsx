@@ -23,6 +23,11 @@ const Button = styled(motion.button)`
       background-color: var(--silver);
       color: var(--olive);
     `}
+  @media (max-width: 1000px) {
+    font-size: 12px;
+    height: 25px;
+    padding: 0px 5px;
+  }
 `
 
 const CTAButton = ({ text, primary }) => {

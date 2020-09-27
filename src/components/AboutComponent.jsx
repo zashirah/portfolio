@@ -16,11 +16,20 @@ const AboutDiv = styled.div`
 const AboutHeader = styled.h1`
   font-size: 48px;
   margin-bottom: 15px;
+  @media (max-width: 1200px) {
+    font-size: 36px;
+  }
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
 `
 
 const AboutParagraph = styled.p`
   font-size: 18px;
   text-align: center;
+  @media (max-width: 1200px) {
+    font-size: 14px;
+  }
 `
 
 const StyledLink = styled(Link)`

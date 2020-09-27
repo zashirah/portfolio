@@ -27,7 +27,7 @@ export const ProjectInfo = [
         </p>
       </>
     ),
-    skills: ["reactjs", "ruby", "rails"],
+    skills: ["reactjs", "ruby", "rails", "postgresql"],
     link: "https://barc-shelter.netlify.app/",
     githubLink: "https://github.com/zashirah/Barc-Shelter",
   },
@@ -98,7 +98,7 @@ export const ProjectInfo = [
         </p>
       </>
     ),
-    skills: ["reactjs", "mongodb"],
+    skills: ["mongodb", "express", "reactjs", "nodejs"],
     link: "https://barc-shelter.netlify.app/",
     githubLink: "https://github.com/zashirah/Barc-Shelter",
   },
@@ -108,7 +108,7 @@ export const ProjectInfo = [
   //   description: (
   //     <>
   //       <p>
-  //         My portfolio is built using Gatsby 
+  //         My portfolio is built using Gatsby
   //       </p>
   //     </>
   //   ),

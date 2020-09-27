@@ -1,3 +1,4 @@
+import { navigate } from "gatsby"
 import React, { useState } from "react"
 import styled from "styled-components"
 import { createContact } from "../services/contactInfo"
@@ -43,6 +44,7 @@ const FormText = styled.p`
 `
 
 const ContactForm = () => {
+  
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -62,6 +64,7 @@ const ContactForm = () => {
   const handleSubmit = async e => {
     e.preventDefault()
     await createContact(name, email, message)
+    navigate("/thank-you")
   }
 
   return (

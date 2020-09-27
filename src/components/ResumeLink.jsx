@@ -23,6 +23,10 @@ const StyledButton = styled(motion.button)`
   border: none;
   box-shadow: 0px 1px 2.5px 0.5px var(--olive);
   padding: 0px 5px;
+  @media (max-width: 767px) {
+    height: 30px;
+    font-size: 12px;
+  }
 `
 
 const ResumeLink = () => {
