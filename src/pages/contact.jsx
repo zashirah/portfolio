@@ -16,9 +16,9 @@ const ContactPage = styled.div`
   align-items: center;
   justify-content: center;
   width: 90%;
-  /* @media screen and (max-width: 767px) {
+  @media screen and (max-width: 767px) {
     height: 88vh;
-  } */
+  }
 `
 
 const Title = styled.h2``
