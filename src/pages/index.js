@@ -21,7 +21,7 @@ import { ProfessionalSummaryText, HomeLinksText } from "../content/home";
 
 const HomeContainer = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: 88vh;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -31,12 +31,15 @@ const Left = styled.div`
   box-sizing: border-box;
   width: 40vw;
   background-color: var(--olive);
-  height: 100vh;
+  /* height: 100vh; */
   padding-right: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+  @media (max-width: 767px) {
+    padding-right: 10px;
+  }
 `
 
 
@@ -49,6 +52,9 @@ const Right = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  @media (max-width: 767px) {
+    margin-left: 10px;
+  }
 `
 
 const IndexPage = ({ siteTitle }) => {
@@ -67,12 +73,6 @@ const IndexPage = ({ siteTitle }) => {
         {HomeLinksText[1].contact}
       </Right>
       </HomeContainer>
-      {/* <SummaryHeadshotContainer>
-        <Headshot />
-        <ProfessionalSummary>
-          <ProfessionalSummaryText />
-        </ProfessionalSummary>
-      </SummaryHeadshotContainer> */}
     </Layout>
   )
 }

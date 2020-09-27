@@ -9,7 +9,8 @@ const Nav = styled.div`
   /* background-color: var(--white); */
   max-width: 1440px;
   @media screen and (max-width: 768px) {
-    height: ${props => (props.navOpen ? "100vh" : "75px")};
+    height: ${props => (props.navOpen ? "100vh" : "12vh")};
+    /* height: 12vh; */
   }
 `
 
@@ -28,7 +29,7 @@ const NavHeader = styled.header`
   z-index: 5;
   box-shadow: 0px 1px 5px 1px var(--olive);
   @media screen and (max-width: 768px) {
-    height: ${props => (props.navOpen ? "100vh" : "75px")};
+    height: ${props => (props.navOpen ? "100vh" : "12vh")};
     align-items: ${props => (props.navOpen ? "flex-start" : "center")};
     top: ${props => (props.navOpen ? "100" : "0")};
     padding-top: ${props => (props.navOpen ? "12px" : "0")};

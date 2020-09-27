@@ -24,7 +24,7 @@ const AboutPage = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     height: 100%;
-    margin-top: 70px;
+    /* margin-top: 70px; */
   }
 `
 
