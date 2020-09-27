@@ -8,14 +8,17 @@ import Layout from "../components/layout"
 import { contactSummaryText } from "../content/contact"
 
 const ContactPage = styled.div`
-  margin: 0px auto 35px ;
-  /* padding-top: 100px; */
-  height: 88vh;
+  margin: 0px auto 35px;
+  padding-top: 20px;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 90%;
+  /* @media screen and (max-width: 767px) {
+    height: 88vh;
+  } */
 `
 
 const Title = styled.h2``

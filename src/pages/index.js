@@ -21,10 +21,13 @@ import { ProfessionalSummaryText, HomeLinksText } from "../content/home";
 
 const HomeContainer = styled.div`
   width: 100vw;
-  height: 88vh;
+  height: 100vh;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  @media (max-width: 767px) {
+    height: 88vh;
+  }
 `
 
 const Left = styled.div`

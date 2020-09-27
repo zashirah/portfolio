@@ -19,7 +19,7 @@ const AboutHeader = styled.h1`
   @media (max-width: 1200px) {
     font-size: 36px;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     font-size: 24px;
   }
 `
