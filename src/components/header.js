@@ -41,7 +41,7 @@ const NavLeft = styled.div`
   text-align: left;
   padding-left: 25px;
   @media screen and (max-width: 767px) {
-    width: 80%;
+    width: ${props => (props.navOpen ? "70%" : "90%")};
   }
 `
 
@@ -62,7 +62,7 @@ const NavRight = styled.div`
     /* justify-content: flex-end; */
     align-items: flex-end;
     flex-direction: column;
-    width: 20%;
+    width: ${props => (props.navOpen ? "30%" : "10%")};
     padding-top: ${props => (props.navOpen ? "16px" : "0")};
   }
 `
@@ -70,6 +70,9 @@ const NavRight = styled.div`
 const NavTitle = styled.h1`
   @media (max-width: 1000px) {
     font-size: 20px;
+  }
+  @media (max-width: 767px) {
+    font-size: 16px;
   }
 `
 const TitleLink = styled(Link)`
@@ -89,6 +92,9 @@ const StyledLink = styled(Link)`
   }
   @media (max-width: 1000px) {
     font-size: 18px;
+  }
+  @media (max-width: 767px) {
+    font-size: 16px;
   }
 `
 
