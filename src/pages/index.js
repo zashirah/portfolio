@@ -37,6 +37,9 @@ const Left = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+  @media (max-width: 767px) {
+    padding-right: 10px;
+  }
 `
 
 
@@ -49,6 +52,9 @@ const Right = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  @media (max-width: 767px) {
+    margin-left: 10px;
+  }
 `
 
 const IndexPage = ({ siteTitle }) => {

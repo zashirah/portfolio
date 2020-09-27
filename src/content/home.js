@@ -23,10 +23,16 @@ const StyledLink = styled(Link)`
 
 const Title = styled.h2`
   color: var(--white);
+  @media (max-width: 767px) {
+    font-size: 12px;
+  }
 `
 
 const Links = styled.h3`
   color: var(--olive);
+  @media (max-width: 767px) {
+    font-size: 12px;
+  }
 `
 
 export const HomeLinksText = [
