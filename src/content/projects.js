@@ -94,8 +94,9 @@ export const ProjectInfo = [
           The UX teams designs were intended to make the user experience better
           when search for pets to adopt and applying for pets. We followed there
           designs and added a form to allow users to apply online instead of
-          having to print off and form and call to make an appointment.
+          having to print off and form and call to make an appointment. (This has not been designed for mobile)
         </p>
+        
       </>
     ),
     skills: ["mongodb", "express", "reactjs", "nodejs"],

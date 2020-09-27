@@ -93,7 +93,7 @@ const ContactForm = () => {
         name="message"
         type="long-text"
         rows="8"
-        cols="50"
+        cols="25"
         value={message}
         onChange={handleChange}
       />

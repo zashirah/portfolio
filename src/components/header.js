@@ -3,10 +3,14 @@ import PropTypes from "prop-types"
 import React, { useState } from "react"
 import styled from "styled-components"
 import { motion } from "framer-motion"
+import HamburgerMenu from "./HamburgerMenu"
 
 const Nav = styled.div`
   /* background-color: var(--white); */
   max-width: 1440px;
+  @media screen and (max-width: 768px) {
+    height: ${props => (props.navOpen ? "100vh" : "75px")};
+  }
 `
 
 const NavHeader = styled.header`
@@ -23,16 +27,29 @@ const NavHeader = styled.header`
   margin: 0 auto;
   z-index: 5;
   box-shadow: 0px 1px 5px 1px var(--olive);
+  @media screen and (max-width: 768px) {
+    height: ${props => (props.navOpen ? "100vh" : "75px")};
+    align-items: ${props => (props.navOpen ? "flex-start" : "center")};
+    top: ${props => (props.navOpen ? "100" : "0")};
+    padding-top: ${props => (props.navOpen ? "12px" : "0")};
+    /* align-items: flex-start; */
+  }
 `
 
 const NavLeft = styled.div`
   width: 55%;
   text-align: left;
   padding-left: 25px;
+  @media screen and (max-width: 767px) {
+    width: 80%;
+  }
 `
 
 const NavCenter = styled.div`
   width: 8%;
+  @media screen and (max-width: 767px) {
+    width: 0%;
+  }
 `
 
 const NavRight = styled.div`
@@ -41,6 +58,13 @@ const NavRight = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding-right: 25px;
+  @media (max-width: 767px) {
+    /* justify-content: flex-end; */
+    align-items: flex-end;
+    flex-direction: column;
+    width: 20%;
+    padding-top: ${props => (props.navOpen ? "16px" : "0")};
+  }
 `
 
 const NavTitle = styled.h1`
@@ -68,31 +92,49 @@ const StyledLink = styled(Link)`
   }
 `
 
+const NavListItem = styled.li`
+  box-sizing: border-box;
+  list-style: none;
+  color: var(--olive);
+  @media screen and (max-width: 768px) {
+    display: ${props => (props.navOpen ? "flex" : "none")};
+    padding: ${props => (props.navOpen ? "10px 0 10px 0" : "10px")};
+    align-items: ${props => (props.navOpen ? "flex-end" : "center")};
+    /* font-size: 25px; */
+  }
+  /* @media screen and (max-width: 425px) {
+    padding: 10px 0 10px 0;
+  } */
+`
+
 const Header = ({ siteTitle }) => {
+  const [navOpen, setNavOpen] = useState(false)
+
   return (
-    <Nav>
-      <NavHeader>
-        <NavLeft>
+    <Nav navOpen={navOpen}>
+      <NavHeader navOpen={navOpen}>
+        <NavLeft navOpen={navOpen}>
           <NavTitle>
-            <TitleLink to="/">{siteTitle}</TitleLink>
+            <TitleLink
+              navOpen={navOpen}
+              to="/"
+              onClick={() => setNavOpen(false)}
+            >
+              {siteTitle}
+            </TitleLink>
           </NavTitle>
         </NavLeft>
         <NavCenter></NavCenter>
-        <NavRight>
-          <StyledLink
-            to="/about"
-          >
-            About Me
+        <NavRight navOpen={navOpen}>
+          <HamburgerMenu setNavOpen={setNavOpen} navOpen={navOpen} />
+          <StyledLink to="/about" onClick={() => setNavOpen(false)}>
+            <NavListItem navOpen={navOpen}>About Me</NavListItem>
           </StyledLink>
-          <StyledLink
-            to="/projects"
-          >
-            Projects
+          <StyledLink to="/projects" onClick={() => setNavOpen(false)}>
+            <NavListItem navOpen={navOpen}>Projects</NavListItem>
           </StyledLink>
-          <StyledLink
-            to="/contact"
-          >
-            Contact
+          <StyledLink to="/contact" onClick={() => setNavOpen(false)}>
+            <NavListItem navOpen={navOpen}>Contact</NavListItem>
           </StyledLink>
         </NavRight>
       </NavHeader>
