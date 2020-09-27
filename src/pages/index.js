@@ -21,7 +21,7 @@ import { ProfessionalSummaryText, HomeLinksText } from "../content/home";
 
 const HomeContainer = styled.div`
   width: 100vw;
-  height: 100vh;
+  height: 88vh;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -31,7 +31,7 @@ const Left = styled.div`
   box-sizing: border-box;
   width: 40vw;
   background-color: var(--olive);
-  height: 100vh;
+  /* height: 100vh; */
   padding-right: 25px;
   display: flex;
   flex-direction: column;
@@ -73,12 +73,6 @@ const IndexPage = ({ siteTitle }) => {
         {HomeLinksText[1].contact}
       </Right>
       </HomeContainer>
-      {/* <SummaryHeadshotContainer>
-        <Headshot />
-        <ProfessionalSummary>
-          <ProfessionalSummaryText />
-        </ProfessionalSummary>
-      </SummaryHeadshotContainer> */}
     </Layout>
   )
 }

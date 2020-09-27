@@ -9,8 +9,8 @@ import { contactSummaryText } from "../content/contact"
 
 const ContactPage = styled.div`
   margin: 0px auto 35px ;
-  padding-top: 100px;
-  min-height: 60vh;
+  /* padding-top: 100px; */
+  height: 88vh;
   display: flex;
   flex-direction: column;
   align-items: center;
