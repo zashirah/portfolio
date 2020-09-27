@@ -4,7 +4,8 @@ import React from "react"
 import styled from 'styled-components'
 
 const Hamburger = styled.div`
-  paddingbottom: 10px;
+  /* padding-bottom: 10px; */
+  text-align: right;
   @media screen and (min-width: 769px) {
     display: none;
   }
