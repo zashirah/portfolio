@@ -7,8 +7,8 @@ import { motion } from "framer-motion"
 import ResumeLink from "./ResumeLink"
 
 const StyledFooter = styled.footer`
-  /* position: fixed; */
-  /* bottom: 0; */
+  position: fixed;
+  bottom: 0;
 
   display: flex;
   justify-content: space-between;

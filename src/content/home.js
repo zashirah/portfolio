@@ -1,4 +1,6 @@
 import React from "react"
+import { Link } from "gatsby"
+import styled from "styled-components"
 
 export const ProfessionalSummaryText = () => (
   <>
@@ -8,3 +10,59 @@ export const ProfessionalSummaryText = () => (
     stay up to date in engineering tactics and technologies.
   </>
 )
+
+const StyledLink = styled(Link)`
+  color: var(--olive);
+  text-decoration: none;
+  text-transform: uppercase;
+  /* font-size: 24px; */
+  &&:hover {
+    text-decoration: underline;
+  }
+`
+
+const Title = styled.h2`
+  color: var(--white);
+`
+
+const Links = styled.h3`
+  color: var(--olive);
+`
+
+export const HomeLinksText = [
+  {
+    top: (
+      <>
+        <Title>Zach Shirah</Title>
+      </>
+    ),
+    bottom: (
+      <>
+        <Title>Softare Engineer</Title>
+      </>
+    ),
+  },
+  {
+    about: (
+      <>
+        <Links>
+          Learn more <StyledLink to="/about">about me</StyledLink>
+        </Links>
+      </>
+    ),
+    projects: (
+      <>
+        <Links>
+          Check out <StyledLink to="/projects">my projects</StyledLink>
+        </Links>
+      </>
+    ),
+    contact: (
+      <>
+        <Links>
+          Learn how to <StyledLink to="/contact">reach out</StyledLink>
+        </Links>
+      </>
+    ),
+  },
+]

@@ -10,9 +10,9 @@ import Icon from "./Icon"
 
 const CardContainer = styled(motion.div)`
   height: 60vh;
-  width: 80vw;
+  width: 70vw;
   padding: 15px;
-  margin: 75px;
+  margin: 0px 15px;
   display: flex;
   flex-direction: row;
   background-color: var(--silver);
@@ -104,14 +104,24 @@ const CardImage = styled.img`
 `
 
 const ProjectCard = ({
-  title,
-  image,
-  skills,
-  description,
-  link,
-  githubLink,
+  ProjectCardInfo,
+  // title,
+  // image,
+  // skills,
+  // description,
+  // link,
+  // githubLink,
 }) => {
   const [hovered, setHovered] = useState(false)
+
+  const {
+    title,
+    image,
+    skills,
+    description,
+    link,
+    githubLink
+  } = ProjectCardInfo
 
   const IconsJSX = skills.map((skill, index) => {
     let icon = iconPathArray.find(iconPath => iconPath.name === skill)
