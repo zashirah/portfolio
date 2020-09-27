@@ -11,7 +11,7 @@ const SkillsDiv = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     flex-direction: row;
     padding-top: 25px;
   }
@@ -23,7 +23,7 @@ const SkillsTitle = styled.h1`
   @media (max-width: 1200px) {
     font-size: 36px;
   }
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     display: none;
   }
 `

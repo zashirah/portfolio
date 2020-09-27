@@ -17,6 +17,9 @@ const ProjectCardsContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+  @media (max-width: 425px) {
+    height: 70vh;
+  }
 `
 
 // const ProjectCardsJSX = ProjectInfo.map(projectCard => (

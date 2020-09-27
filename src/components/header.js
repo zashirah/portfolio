@@ -8,7 +8,7 @@ import HamburgerMenu from "./HamburgerMenu"
 const Nav = styled.div`
   /* background-color: var(--white); */
   max-width: 1440px;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     height: ${props => (props.navOpen ? "100vh" : "12vh")};
     /* height: 12vh; */
   }
@@ -28,7 +28,7 @@ const NavHeader = styled.header`
   margin: 0 auto;
   z-index: 5;
   box-shadow: 0px 1px 5px 1px var(--olive);
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     height: ${props => (props.navOpen ? "100vh" : "12vh")};
     align-items: ${props => (props.navOpen ? "flex-start" : "center")};
     top: ${props => (props.navOpen ? "100" : "0")};
@@ -103,7 +103,7 @@ const NavListItem = styled.li`
   box-sizing: border-box;
   list-style: none;
   color: var(--olive);
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 767px) {
     display: ${props => (props.navOpen ? "flex" : "none")};
     padding: ${props => (props.navOpen ? "10px 0 10px 0" : "10px")};
     align-items: ${props => (props.navOpen ? "flex-end" : "center")};

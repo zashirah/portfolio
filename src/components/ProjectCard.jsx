@@ -119,11 +119,12 @@ const CardRight = styled.div`
   height: 100%;
   position: relative;
   @media (max-width: 425px) {
-    order: -1;
+    /* order: -1;
     width: 100%;
     height: 20vh;
     padding: 0;
-    margin: 0;
+    margin: 0; */
+    display: none;
   }
 `
 
@@ -140,8 +141,9 @@ const CardImage = styled.img`
     `} */
   @media (max-width: 425px) {
     /* height: 60%; */
-    padding: 0;
-    margin: 0;
+    /* padding: 0;
+    margin: 0; */
+    display: none;
   }
 `
 
