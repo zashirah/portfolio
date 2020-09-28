@@ -26,7 +26,7 @@ const CardContainer = styled(motion.div)`
     `}
   @media (max-width: 425px) {
     flex-direction: column;
-    height: 70vh;
+    height: 60vh;
     width: 70vw;
     justify-content: center;
     align-items: center;
