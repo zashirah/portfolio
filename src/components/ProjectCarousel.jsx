@@ -8,6 +8,12 @@ import { wrap } from "@popmotion/popcorn"
 import ProjectCard from "./ProjectCard"
 import { ProjectInfo } from "../content/projects"
 
+const CarouselAndTracker = styled.div`
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+`
+
 const CarouselContainer = styled.div`
   box-sizing: border-box;
   display: flex;
@@ -29,8 +35,7 @@ const ArrowButton = styled.button`
   background-color: var(--white);
   /* &&:click {
   } */
-` 
-
+`
 
 const RightArrow = styled(ArrowheadRightOutline)`
   box-sizing: border-box;
@@ -70,6 +75,22 @@ const LeftArrow = styled(ArrowheadLeftOutline)`
   }
 `
 
+const TrackerContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 15px;
+`
+
+const Circle = styled.div`
+  height: 5px;
+  width: 5px;
+  border-radius: 100%;
+  border: solid 1px var(--olive);
+  background-color: ${props => (props.selected ? "#403D39" : "#fffcf2")};
+  margin: 5px;
+`
+
 const ProjectCarousel = () => {
   const [[page, direction], setPage] = useState([0, 0])
 
@@ -79,16 +100,25 @@ const ProjectCarousel = () => {
 
   const index = wrap(0, ProjectInfo.length, page)
 
+  const CarouselTrackerJSX = [
+    ...Array(ProjectInfo.length).keys(),
+  ].map((number) => (
+    <Circle selected={Number(number) === Number(index) ? true : false} />
+  ))
+
   return (
-    <CarouselContainer>
-      <ArrowButton onClick={() => paginate(-1)}>
-        <LeftArrow />
-      </ArrowButton>
-      <ProjectCard ProjectCardInfo={ProjectInfo[index]}></ProjectCard>
-      <ArrowButton onClick={() => paginate(1)}>
-        <RightArrow />
-      </ArrowButton>
-    </CarouselContainer>
+    <CarouselAndTracker>
+      <CarouselContainer>
+        <ArrowButton onClick={() => paginate(-1)}>
+          <LeftArrow />
+        </ArrowButton>
+        <ProjectCard ProjectCardInfo={ProjectInfo[index]}></ProjectCard>
+        <ArrowButton onClick={() => paginate(1)}>
+          <RightArrow />
+        </ArrowButton>
+      </CarouselContainer>
+      <TrackerContainer>{CarouselTrackerJSX}</TrackerContainer>
+    </CarouselAndTracker>
   )
 }
 

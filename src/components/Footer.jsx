@@ -20,6 +20,7 @@ const StyledFooter = styled.footer`
     position: fixed;
     bottom: 0;
     margin-top: 0px;
+    padding-bottom: 5px;
   }
 `
 

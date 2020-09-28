@@ -17,6 +17,9 @@ const StyledFooter = styled.footer`
   /* margin-top: 25px; */
   padding-bottom: 15px;
   /* margin-top: 0px; */
+  @media (max-width: 769px) {
+    padding-bottom: 5px;
+  }
 `
 
 const LeftFooter = styled.div`
