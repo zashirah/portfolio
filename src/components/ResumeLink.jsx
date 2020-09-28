@@ -32,7 +32,7 @@ const StyledButton = styled(motion.button)`
 const ResumeLink = () => {
   return (
     <StyledLink
-      to="https://www.docdroid.net/wO4Oq5E/zach-shirah-resume-920-pdf"
+      to="https://docdro.id/wO4Oq5E"
       target="_blank"
       onClick={event => {
         event.preventDefault()

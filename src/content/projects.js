@@ -28,8 +28,8 @@ export const ProjectInfo = [
       </>
     ),
     skills: ["reactjs", "ruby", "rails", "postgresql"],
-    link: "https://barc-shelter.netlify.app/",
-    githubLink: "https://github.com/zashirah/Barc-Shelter",
+    link: "https://epl-survivor.netlify.app/login",
+    githubLink: "https://github.com/zashirah/premier-league-survivor",
   },
   {
     title: `2048 (clone)`,
@@ -109,12 +109,13 @@ export const ProjectInfo = [
     description: (
       <>
         <p>
-          This portfolio is a front end app built using Gatsby and styled with Styled Components.
+          This portfolio is a front end app built using Gatsby and styled with
+          Styled Components.
         </p>
       </>
     ),
     skills: ["gatsbyjs", "reactjs"],
-    link: "https://barc-shelter.netlify.app/",
-    githubLink: "https://github.com/zashirah/Barc-Shelter",
+    link: "https://www.zach-shirah.com/",
+    githubLink: "https://github.com/zashirah/portfolio",
   },
 ]
