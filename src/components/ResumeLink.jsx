@@ -32,16 +32,16 @@ const StyledButton = styled(motion.button)`
 const ResumeLink = () => {
   return (
     <StyledLink
-      to="https://docdro.id/pdd3eAR"
+      to="https://www.docdroid.net/wO4Oq5E/zach-shirah-resume-920-pdf"
       target="_blank"
       onClick={event => {
         event.preventDefault()
         window.open(this.makeHref("route"))
       }}
     >
-      <StyledButton
-        whileHover={{ scale: 1.1 }}
-        type="submit">Download my resume</StyledButton>
+      <StyledButton whileHover={{ scale: 1.1 }} type="submit">
+        Download my resume
+      </StyledButton>
     </StyledLink>
   )
 }
