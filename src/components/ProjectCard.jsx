@@ -26,12 +26,12 @@ const CardContainer = styled(motion.div)`
     `}
   @media (max-width: 425px) {
     flex-direction: column;
-    height: 60vh;
+    height: 70vh;
     width: 70vw;
     justify-content: center;
     align-items: center;
     padding: 5px;
-    margin: 0 10px 0px 10px;
+    margin: 15px 10px 0px 10px;
     /* margin-right: 10px; */
   }
 `
@@ -119,12 +119,13 @@ const CardRight = styled.div`
   height: 100%;
   position: relative;
   @media (max-width: 425px) {
-    /* order: -1;
+    order: -1;
     width: 100%;
     height: 20vh;
     padding: 0;
-    margin: 0; */
-    display: none;
+    margin: 0;
+    margin-bottom: 10px;
+    /* display: none; */
   }
 `
 
@@ -141,9 +142,10 @@ const CardImage = styled.img`
     `} */
   @media (max-width: 425px) {
     /* height: 60%; */
-    /* padding: 0;
-    margin: 0; */
-    display: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 10px;
+    /* display: none; */
   }
 `
 
