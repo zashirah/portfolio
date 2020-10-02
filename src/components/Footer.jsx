@@ -53,6 +53,7 @@ const Footer = () => {
   return (
     <StyledFooter>
       <LeftFooter>
+        <ResumeLink />
       </LeftFooter>
       <RightFooter>
         <SocialContainer whileHover={{ scale: 1.1 }}>
