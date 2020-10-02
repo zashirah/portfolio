@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
+import { motion } from "framer-motion"
 
 export const ProfessionalSummaryText = () => (
   <>
@@ -21,14 +22,14 @@ const StyledLink = styled(Link)`
   }
 `
 
-const Title = styled.h2`
+const Title = styled(motion.h2)`
   color: var(--white);
   @media (max-width: 767px) {
     font-size: 12px;
   }
 `
 
-const Links = styled.h3`
+const Links = styled(motion.h3)`
   color: var(--olive);
   @media (max-width: 767px) {
     font-size: 12px;
@@ -39,33 +40,62 @@ export const HomeLinksText = [
   {
     top: (
       <>
-        <Title>Zach Shirah</Title>
+        <Title
+          initial={{ opacity: 0, x: -1000 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -1000 }}
+          transition={{ duration: 0.5 }}
+        >
+          Zach Shirah
+        </Title>
       </>
     ),
     bottom: (
       <>
-        <Title>Softare Engineer</Title>
+        <Title
+          initial={{ opacity: 0, x: -1000 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -1000 }}
+          transition={{ duration: 0.5 }}
+        >
+          Softare Engineer
+        </Title>
       </>
     ),
   },
   {
     about: (
       <>
-        <Links>
+        <Links
+          initial={{ opacity: 0, x: 1000 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 1000 }}
+          transition={{ duration: 0.5 }}
+        >
           Learn more <StyledLink to="/about">about me</StyledLink>
         </Links>
       </>
     ),
     projects: (
       <>
-        <Links>
+        <Links
+          initial={{ opacity: 0, x: 1000 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 1000 }}
+          transition={{ duration: 0.5 }}
+        >
           Check out <StyledLink to="/projects">my projects</StyledLink>
         </Links>
       </>
     ),
     contact: (
       <>
-        <Links>
+        <Links
+          initial={{ opacity: 0, x: 1000 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 1000 }}
+          transition={{ duration: 0.5 }}
+        >
           Learn how to <StyledLink to="/contact">reach out</StyledLink>
         </Links>
       </>
