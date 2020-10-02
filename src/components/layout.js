@@ -8,6 +8,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import { motion } from "framer-motion"
 
 import styled from "styled-components"
 
@@ -22,7 +23,7 @@ const Background = styled.div`
   max-width: 1440px;
   margin: 0 auto;
 `
-const Site = styled.div`
+const Site = styled(motion.div)`
   /* min-height: 100vh; */
 `
 
@@ -38,7 +39,11 @@ const Layout = ({ children, sticky }) => {
   `)
 
   return (
-    <Site>
+    <Site
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <Background>
         <Header siteTitle={data.site.siteMetadata.title} />
       </Background>

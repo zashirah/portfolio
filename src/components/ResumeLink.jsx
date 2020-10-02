@@ -32,7 +32,7 @@ const StyledButton = styled(motion.button)`
 const ResumeLink = () => {
   return (
     <StyledLink
-      to="https://docdro.id/wO4Oq5E"
+      to="https://drive.google.com/file/d/1R6Ht80psjSEERuyNFg6cP72J_N6o1G_k/view"
       target="_blank"
       onClick={event => {
         event.preventDefault()

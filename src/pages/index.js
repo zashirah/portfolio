@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import styled from "styled-components"
+import { motion } from "framer-motion"
 // import { Link } from "gatsby"
 
 import "../styles.css"
@@ -19,7 +20,7 @@ import { ProfessionalSummaryText, HomeLinksText } from "../content/home";
 //   flex-direction: row;
 // `
 
-const HomeContainer = styled.div`
+const HomeContainer = styled(motion.div)`
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -64,17 +65,20 @@ const IndexPage = ({ siteTitle }) => {
   return (
     <Layout sticky={true}>
       <SEO title="Home" />
-      <HomeContainer>
-
-      <Left>
-        {HomeLinksText[0].top}
-        {HomeLinksText[0].bottom}
-      </Left>
-      <Right>
-        {HomeLinksText[1].about}
-        {HomeLinksText[1].projects}
-        {HomeLinksText[1].contact}
-      </Right>
+      <HomeContainer
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
+        <Left>
+          {HomeLinksText[0].top}
+          {HomeLinksText[0].bottom}
+        </Left>
+        <Right>
+          {HomeLinksText[1].about}
+          {HomeLinksText[1].projects}
+          {HomeLinksText[1].contact}
+        </Right>
       </HomeContainer>
     </Layout>
   )
