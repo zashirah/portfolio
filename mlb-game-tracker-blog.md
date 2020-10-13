@@ -21,7 +21,7 @@ So right now I see this as 4 phases:
 3. Frontend
 4. Automation/Refactor
 
-## Analysis / Data Mining / Planning
+## Analysis,  Data Mining, Planning
 
 This first step of this process was to gather the data and transform it to get the metrics and data points I need. Over the past 2+ years, I have worked to try to find (or scrape) MLB play-by-play data that was free. I have gotten close many times, but I found bigdataball.com and they have play by play data that gets updated each day for a reasonable price (I got 2020 data for ~$35). So I ran with this. The biggest problem with this dataset is that it is an .xlsx file with formatting, so not incredibly machine readable. I made the adjustments to the file and saved it as a .csv, so my Python program could read it. 
 
