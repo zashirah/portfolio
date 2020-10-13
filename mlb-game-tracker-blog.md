@@ -29,6 +29,8 @@ Next, I need to add some columns to my datasets. Stuff like runs in current inni
 
 I have also built a simple wireframe (https://whimsical.com/MJ7veDGuBiw6asA7v8RxfS).
 
+This is where I currently stand. Today my goal is to put together win probability & exprected runs tables, do a basic visualization for these (to verify it's interesting enough to continue), and design the DB schema. 
+
 
 ## Backend
 
