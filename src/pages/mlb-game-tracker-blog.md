@@ -35,17 +35,28 @@ Next, I need to add some columns to my datasets. Stuff like runs in current inni
 
 I have also built a simple wireframe (https://whimsical.com/MJ7veDGuBiw6asA7v8RxfS).
 
-This is where I currently stand. Today my goal is to put together win probability & exprected runs tables, do a basic visualization for these (to verify it's interesting enough to continue), and design the DB schema. 
+Todo: 
+- create winning team column
+- create home win column
+- get win % by state
 
+Notes: 
+- turns out you need to reset index after using pd.concat
 
 ## Backend
-
+Todo:
+- design schema
 
 ## Frontend
-
 Wireframe : https://whimsical.com/MJ7veDGuBiw6asA7v8RxfS
+Todo: 
+- diagram architecture 
+- build visual (learn how with d3)
+
 
 ## Automation
-
+Notes of needed fixes:
+- post score (home and away)
+- winning team (needs to use post score)
 
 
