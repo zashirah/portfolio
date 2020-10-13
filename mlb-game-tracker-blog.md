@@ -2,8 +2,8 @@
 
 - [Intro](#intro)
 - [Analysis / Data Mining](#analysis-data-mining)
-- [backend](#backend)
-- [frontend](#frontend)
+- [Backend](#backend)
+- [Frontend](#frontend)
 
 
 ## Intro
