@@ -91,7 +91,7 @@ const StyledLink = styled(Link)`
   &&:hover {
     text-decoration: underline;
   }
-  @media (max-width: 1000px) {
+  @media (max-width: 1200px) {
     font-size: 18px;
   }
   @media (max-width: 767px) {
@@ -142,6 +142,9 @@ const Header = ({ siteTitle }) => {
           </StyledLink>
           <StyledLink to="/contact" onClick={() => setNavOpen(false)}>
             <NavListItem navOpen={navOpen}>Contact</NavListItem>
+          </StyledLink>
+          <StyledLink to="/blog" onClick={() => setNavOpen(false)}>
+            <NavListItem navOpen={navOpen}>Blog</NavListItem>
           </StyledLink>
         </NavRight>
       </NavHeader>
