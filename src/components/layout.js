@@ -27,7 +27,7 @@ const Site = styled(motion.div)`
   /* min-height: 100vh; */
 `
 
-const Layout = ({ children, sticky }) => {
+const Layout = ({ children, sticky, noShow }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -51,8 +51,8 @@ const Layout = ({ children, sticky }) => {
         <main>{children}</main>
       </Background>
       <Background>
-        {!sticky && <Footer />}
-        {sticky && <StickyFooter />}
+        {!sticky && !noShow && <Footer />}
+        {sticky && !noShow && <StickyFooter />}
       </Background>
     </Site>
   )
