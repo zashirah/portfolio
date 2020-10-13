@@ -38,7 +38,7 @@ export const ProjectInfo = [
       <>
         <p>
           2048 clone is a clone of a classic iPhone game called 2048 built using
-          create-react-app and tailwindCSS for styliing
+          create-react-app and tailwindCSS for styling
         </p>
         {/* <p>
           2048 allows a user to play 2048 and save there score to the
