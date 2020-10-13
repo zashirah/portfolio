@@ -5,16 +5,17 @@ import styled from 'styled-components'
 
 const BlogPage = styled.div`
   margin: 0px auto 35px;
-  padding-top:100px;
+  padding-top: 100px;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 90%;
-  /* @media screen and (max-width: 767px) {
-    height: 88vh;
-  } */
+  @media screen and (max-width: 767px) {
+    padding-top: 50px;
+    max-width: 90vw;
+  }
 `
 
 
