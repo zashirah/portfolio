@@ -10,7 +10,7 @@ date: "2020-10-13"
 - [Automation](#automation) -->
 
 
-## Intro
+## Intro (Day 1)
 
 MLB Game Tracker is a MERN (MongoDB, Express, React, Node.js) project with D3.js for visualizations. This is a project that is many years coming. The inspiration came from a great baseball analytics book called The Book: Playing the Percentages in Baseball. This book covers many topics that are mostly understood by people that follow baseball. Ideas like bunting is almost always a bad idea (same with steals), hot streaks aren't really a thing (neither are cold streaks) and even goes into optimizing your lineup (guess what? The cleanup hitter isn't as important as your little league coach thought). 
 
@@ -24,11 +24,13 @@ So right now I see this as 4 phases:
 3. Frontend
 4. Automation/Refactor
 
+These are just the first phase steps. I plan to work on this project for a long time. Including more views, different data, different visualizations, etc. 
+
 *** 
 
-## Analysis, Data Mining, Planning
+## Analysis, Data Mining, Planning (Day 2 - 3)
 
-### *Find and Explore Data*
+### *Find and Explore Data* (Day 2)
 
 This first step of this process was to gather the data and transform it to get the metrics and data points I need. Over the past 2+ years, I have worked to try to find (or scrape) MLB play-by-play data that was free. I have gotten close many times, but I found bigdataball.com and they have play by play data that gets updated each day for a reasonable price (I got 2020 data for ~$35). So I ran with this. The biggest problem with this dataset is that it is an .xlsx file with formatting, so not incredibly machine readable. The two biggest adjustments were transforming the ball and strike columns into 2 ball and strike counter columns and getting rid of any merged cells. After doing that, the file was readable using pandas.read_csv().
 
@@ -38,7 +40,7 @@ Next, I need to add some columns to my datasets. Stuff like runs in current inni
 
 
 
-### *Get Win % Column*
+### *Get Win % Column* (Day 3)
 
 My next step is to build out the win % columns. This is done in 4 parts:
 
@@ -118,7 +120,7 @@ data = data.merge(base_out_state_home_win_pct,
 
 Now, I have my win % column. Next step is to check if looking at Win % over time is interesting at all
 
-### _Visualize_ - to validate continuing
+### *Visualize* - to validate continuing (Day 3)
 
 I went back to google sheets for this and created two views
 
@@ -130,17 +132,57 @@ Second - Runs + Expected Runs over time
 
 ![Runs + Expected Runs Graph](../images/Runs+ExpRuns-Graph.png)
 
-Both look pretty interesting to me, so I'll keep going with the project. Not sure what the final view will end up being, but I think I'm going to run with Win % for now. There are fewer exceptions to consider and easier to interpret. When talking about data viz, I think those both prior points are very important. 
+Both look pretty interesting to me, so I'll keep going with the project. Not sure what the final view will end up being, but I think I'm going to run with Win % for now. There are fewer exceptions to consider and easier to interpret. When talking about data viz, I think both prior points are very important. 
 
 ***
 
-## Backend
-Todo:
-- design schema
+## Backend (Day 4)
+
+This is a MERN project so the database will be MongoDB and an Express backend framework. I built out the backend completely and have seeded all the Braves 2020 regular season data locally. When I build this out more in the future, I will include more teams and seasons. 
+
+Version 1 of the backend will be really simple. Just building one table that will house all the data I'm using for the site. You can see the schema below. This was done using Mongoose.
+
+```
+const Game = new Schema(
+  {
+    dataset: { type: String, required: true },
+    gameId: { type: String, required: true },
+    date: { type: Date, required: true }, 
+    inning: { type: String, required: true },
+    roadTeam: { type: String, required: true },
+    homeTeam: { type: String, required: true },
+    roadScore: { type: Number, required: true },
+    homeScore: { type: Number, required: true },
+    batter: { type: String, required: true },
+    batterHand: { type: String, required: true },
+    runnerOn1bInd: { type: String, required: true },
+    runnerOn2bInd: { type: String, required: true },
+    runnerOn3bInd: { type: String, required: true },
+    pitcher: { type: String, required: true },
+    pitcherHand: { type: String, required: true },
+    balls: { type: Number, required: true },
+    strikes: { type: Number, required: true },
+    hitType: { type: String, required: true },
+    playType: { type: String, required: true },
+    runs: { type: Number, required: true },
+    outs: { type: Number, required: true },
+    description: { type: String, required: true },
+    startOuts: { type: Number, required: true },
+    startingRE: { type: Number, required: true },
+    endingRE: { type: Number },
+    home_team_win_pct: { type: Number, required: true },
+  }
+)
+
+```
+
+Eventually, my goal is to build out the backend more. Would like to have something like tables for games, teams, players, seasons, etc. 
 
 ***
 
-## Frontend
+## Frontend (Day 1; )
+
+### *Design Wireframe* (Day 1)
 [Wireframe](https://whimsical.com/MJ7veDGuBiw6asA7v8RxfS)
 ![Wireframe](../images/Wireframe.png)
 Todo: 
