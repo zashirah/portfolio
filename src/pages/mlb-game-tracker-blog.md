@@ -138,7 +138,7 @@ Both look pretty interesting to me, so I'll keep going with the project. Not sur
 
 ## Backend (Day 4)
 
-This is a MERN project so the database will be MongoDB and an Express backend framework. I built out the backend completely and have seeded all the Braves 2020 regular season data locally. When I build this out more in the future, I will include more teams and seasons. 
+This is a MERN project so the database will be MongoDB and an Express backend framework. I built out the backend, set up the MongoDB connection, and deployed the DB through Heroku. When I build this out more in the future, I will include more teams and seasons. 
 
 Version 1 of the backend will be really simple. Just building one table that will house all the data I'm using for the site. You can see the schema below. This was done using Mongoose.
 
