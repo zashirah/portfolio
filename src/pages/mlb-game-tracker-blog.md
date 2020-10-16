@@ -188,7 +188,7 @@ Note: The game situation will come later
 
 ### *Design Component Architecture* (Day 5)
 
-![Component Architecture](../images/FrontendComponentArchitecture.png)
+![Component Architecture](../images/FrontendComponentArchitecture2.png)
 
 ### *Set Up File & Connect to MongoDB* (Day 5)
 
@@ -213,6 +213,73 @@ Next, I connected my MongoDB through gatsby-source-mongodb through the following
 3. Test the MongoDB connection in the GraphiQL editor
 
 ![MLB Data GraphiQL Editor](../images/mlb-data-graphiql.png)
+
+4. Create Graphql query on the GameContainer.jsx component (I added a filter because I don't need to work with all the data now)
+
+```jsx
+import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
+
+export default function GameContainer() {
+  const data = useStaticQuery(graphql`
+    query mlbData {
+      allMongodbMlbMongoDbGames(filter: {gameId: {eq: "44094-ATL@NYM-1"}}) {
+        edges {
+          node {
+            id
+            date
+            balls
+            batter
+            batterHand
+            dataset
+            description
+            endingRE
+            gameId
+            hitTypes
+            homeScore
+            homeTeam
+            homeTeamWinPct
+            inning
+            mongodb_id
+            outs
+            pitcher
+            pitcherHand
+            playTypes
+            roadScore
+            roadTeam
+            runnerOn1bInd
+            runnerOn2bInd
+            runnerOn3bInd
+            runs
+            startOuts
+            startingRE
+            strikes
+          }
+        }
+      }
+    }
+  `)
+
+  console.log(data.allMongodbMlbMongoDbGames.edges)
+
+  return <div>hi</div>
+}
+```
+
+Here are the results of the query. Looks like there were 72 at bats in this game (top left of the picture shows the node count), and I'm showing the details of the first at bat. 
+
+![MLB Data GraphiQL Editor](../images/graphql-example-1-node.png)
+
+### *Build D3 Game Tracker View* (Day 5)
+
+I was slightly concerned about blending D3 and Gatsby (aka React + GraphQL + more) because both React and Gatsby want to control the DOM. And I haven't used Gatsby and GraphQL in this manner before, but I really enjoy it. 
+
+AND I was able to make it work. It doesn't look like it but the below picture is an actual rendering of the home team win probability for first 8 atbats from a game. I stole the visual from a [D3 + React Udemy course](https://www.udemy.com/course/d3-react/) I took and added my queried data to it. 
+
+It really doesn't look like much but I'm pretty proud of the start. And I got a ton done today.
+
+![MLB Data GraphiQL Editor](../images/firstD3RenderOfMyData.png)
+
 ***
 
 ## Automation
