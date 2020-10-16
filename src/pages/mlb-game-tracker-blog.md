@@ -179,21 +179,45 @@ Eventually, my goal is to build out the backend more. Would like to have somethi
 
 ***
 
-## Frontend (Day 1; )
+## Frontend (Day 1, 5)
 
 ### *Design Wireframe* (Day 1)
-[Wireframe](https://whimsical.com/MJ7veDGuBiw6asA7v8RxfS)
 ![Wireframe](../images/Wireframe.png)
-Todo: 
-- diagram architecture 
-- build visual (learn how with d3)
 
+Note: The game situation will come later
+
+### *Design Component Architecture* (Day 5)
+
+![Component Architecture](../images/FrontendComponentArchitecture.png)
+
+### *Set Up File & Connect to MongoDB* (Day 5)
+
+I kicked off my frontend with the Gatsby start and cleaned up that file to only include what I need. 
+
+Next, I connected my MongoDB through gatsby-source-mongodb through the following steps:
+
+1. `yarn add gatsby-soure-mongodb`
+
+2. set up configuration in gatsby.config.js
+```js{numberLines: true}
+{
+  resolve: `gatsby-source-mongodb`,
+  options: {
+    connectionString: `mongodb+srv://zach:<password>@cluster0.rktcu.mongodb.net`,
+    dbName: `mlbMongoDB`,
+    collection: `games`,
+  },
+},
+```
+
+3. Test the MongoDB connection in the GraphiQL editor
+
+![MLB Data GraphiQL Editor](../images/mlb-data-graphiql.png)
 ***
 
 ## Automation
 Notes of needed fixes:
 - post score (home and away)
 - winning team (needs to use post score)
-- 
 
 
