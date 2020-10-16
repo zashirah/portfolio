@@ -46,7 +46,7 @@ My next step is to build out the win % columns. This is done in 4 parts:
 
 First, I create a score table to get the winners from each game. I do this by taking the max home score and the max away score for each game and comparing the values. If the home team wins, I set the home team win value to 1; otherwise 0. Taking the average of this column now gives me the home team win % 
 
-<!-- ```
+```python{numberLines: true}
 score = pd.pivot_table(data, 
                             values = ['post_road_score', 'post_home_score'],
                             index = ['dataset', 'game_id'],
@@ -66,7 +66,7 @@ for i in range(len(score)):
     
     
 score['home_team_win'] = home_winner_list
-``` -->
+```
 
 I validated this by checking the results for each season and got the below table. Home teams over the last 5 years have won 53% of games so this checks out. 71% of home teams winning in the 2017 playoffs is pretty crazy.
 
@@ -74,18 +74,18 @@ I validated this by checking the results for each season and got the below table
 
 Next, I joined the 3 columns (final home score, final road score, and home team win) back to the original dataset (data)
 
-<!-- ```
+```python{numberLines: true}
 data = data.merge(score, 
                   on = ['dataset', 
                         'game_id'], 
                   how='left')
 
 data.head()
-``` -->
+```
 
 Finally, I created the win % by game state (Base Runners + Outs + Inning + Score Difference) and joined these values back to the main dataset
 
-<!-- ```
+```python{numberLines: true}
 base_out_state_home_win_pct = pd.pivot_table(data, 
                                               values = 'home_team_win', 
                                               index = ['runner_on_1b_ind', 
@@ -116,7 +116,7 @@ data = data.merge(base_out_state_home_win_pct,
                         'inning', 
                         'home_minus_away_score'], 
                   how='left')
-``` -->
+```
 
 Now, I have my win % column. Next step is to check if looking at Win % over time is interesting at all
 
@@ -142,7 +142,7 @@ This is a MERN project so the database will be MongoDB and an Express backend fr
 
 Version 1 of the backend will be really simple. Just building one table that will house all the data I'm using for the site. You can see the schema below. This was done using Mongoose.
 
-<!-- ```
+```python{numberLines: true}
 const Game = new Schema(
   {
     dataset: { type: String, required: true },
@@ -173,8 +173,7 @@ const Game = new Schema(
     home_team_win_pct: { type: Number, required: true },
   }
 )
-
-``` -->
+```
 
 Eventually, my goal is to build out the backend more. Would like to have something like tables for games, teams, players, seasons, etc. 
 
