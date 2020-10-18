@@ -427,6 +427,8 @@ vis.svg
 
 #### Step 6. create line graph of data
 
+> You have to use 1 - d.node.homeTeamWinPct because the values are calculated from top to bottom. So the top of the SVG is y = 0.
+
 ```jsx
 vis.svg
   .append("path")
