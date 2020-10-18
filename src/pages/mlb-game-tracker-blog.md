@@ -28,6 +28,8 @@ These are just the first phase steps. I plan to work on this project for a long 
 
 *** 
 
+<br>
+
 ## Analysis, Data Mining, Planning (Day 2 - 3)
 
 ### *Find and Explore Data* (Day 2)
@@ -38,7 +40,7 @@ This first step of this process was to gather the data and transform it to get t
 
 Next, I need to add some columns to my datasets. Stuff like runs in current inning and game state (inning + outs + base runners + score difference). I have a Python script that I wrote a couple years ago that I was able to edit and make work for this. It runs pretty slow because I have to calculate the runs till end of inning for each row of data (~190,000 in 2019). I'm planning to go back and refactor that code during the automation phase. 
 
-
+<br>
 
 ### *Get Win % Column* (Day 3)
 
@@ -120,6 +122,8 @@ data = data.merge(base_out_state_home_win_pct,
 
 Now, I have my win % column. Next step is to check if looking at Win % over time is interesting at all
 
+<br>
+
 ### *Visualize* - to validate continuing (Day 3)
 
 I went back to google sheets for this and created two views
@@ -134,9 +138,15 @@ Second - Runs + Expected Runs over time
 
 Both look pretty interesting to me, so I'll keep going with the project. Not sure what the final view will end up being, but I think I'm going to run with Win % for now. There are fewer exceptions to consider and easier to interpret. When talking about data viz, I think both prior points are very important. 
 
+<br>
+
 ***
 
+<br>
+
 ## Backend (Day 4)
+
+Check out the code here: [backend repo](https://github.com/zashirah/mlb-game-tracker-backend)
 
 This is a MERN project so the database will be MongoDB and an Express backend framework. I built out the backend, set up the MongoDB connection, and deployed the DB through Heroku. When I build this out more in the future, I will include more teams and seasons. 
 
@@ -177,18 +187,31 @@ const Game = new Schema(
 
 Eventually, my goal is to build out the backend more. Would like to have something like tables for games, teams, players, seasons, etc. 
 
+<br>
+
 ***
+
+<br>
 
 ## Frontend (Day 1, 5)
 
+Check out the code here: [Frontend Repo](https://github.com/zashirah/mlb-game-tracker-frontend)
+
+<br>
+
 ### *Design Wireframe* (Day 1)
+
 ![Wireframe](../images/Wireframe.png)
 
 Note: The game situation will come later
 
+<br>
+
 ### *Design Component Architecture* (Day 5)
 
 ![Component Architecture](../images/FrontendComponentArchitecture2.png)
+
+<br>
 
 ### *Set Up File & Connect to MongoDB* (Day 5)
 
@@ -266,23 +289,191 @@ export default function GameContainer() {
 }
 ```
 
+
 Here are the results of the query. Looks like there were 72 at bats in this game (top left of the picture shows the node count), and I'm showing the details of the first at bat. 
 
 ![MLB Data GraphiQL Editor](../images/graphql-example-1-node.png)
 
-### *Build D3 Game Tracker View* (Day 5)
+<br>
 
-I was slightly concerned about blending D3 and Gatsby (aka React + GraphQL + more) because both React and Gatsby want to control the DOM. And I haven't used Gatsby and GraphQL in this manner before, but I really enjoy it. 
+### *Render Some D3 (with the MLB Data)* (Day 5)
+
+I was slightly concerned about blending D3 and Gatsby (aka React + GraphQL + more) because both React and D3 want to control the DOM. And I haven't used Gatsby and GraphQL in this manner before, but I really enjoy it. 
 
 AND I was able to make it work. It doesn't look like it but the below picture is an actual rendering of the home team win probability for first 8 atbats from a game. I stole the visual from a [D3 + React Udemy course](https://www.udemy.com/course/d3-react/) I took and added my queried data to it. 
 
 It really doesn't look like much but I'm pretty proud of the start. And I got a ton done today.
 
-![MLB Data GraphiQL Editor](../images/firstD3RenderOfMyData.png)
+![First D3 Render (bar chart)](../images/firstD3RenderOfMyData.png)
+
+<br>
+
+### *Create Basic Line Graph with x and y axis and 50% line* (Day 6)
+
+This tracks the home team win percentage (y-axis) each at bat (x-axis). The horizontal line in the middle is the 50% mark so you can tell when the home team vs road team is more likely to win (based on game data from 2016-2020).
+
+![Line Graph v1](../images/line-graph-v1.png)
+
+Here's the code walk through to create the above (guided by the above Udemy course along with other sites and even more guessing and checking):
+
+#### Step 1. create GameTrackerWrapper.jsx
+
+The GameTrackerWrapper.jsx component is a chart wrapper for the D3Chart. Because both D3 and React want to control the DOM, we need a work around. This [article](https://www.smashingmagazine.com/2018/02/react-d3-ecosystem/) goes through 4 options. I went with the D3 within React method. In this method, we create the chart wrapper file below. The previous article goes into more detail, but the idea is to render a div that references the SVG created by the `GameTrackerChart` class in the `useEffect()`. We also pass the gameData to the GameTrackerChart class.
+
+> Note: The udemy example and code in this article all use class based react, but I wanted to utilize hooks, so I converted everything to hooks.
+
+```jsx
+import React, { useRef, useState, useEffect } from "react"
+import GameTrackerChart from "./GameTrackerChart"
+
+const ChartWrapper = ({ gameData }) => {
+  const chartArea = useRef(null)
+  const [chart, setChart] = useState(null)
+
+  useEffect(() => {
+    if (!chart) {
+      setChart(new GameTrackerChart(chartArea.current, gameData))
+    } else {
+      chart.update()
+    }
+  }, [chart])
+
+  return <div className="chart-area" ref={chartArea}></div>
+}
+
+export default ChartWrapper
+```
+
+#### Step 2. import D3, create global variables, and build D3Chart class (used in the chartWrapper) 
+
+> file name: GameTrackerChart.js
+
+> I'll reference the WIDTH, HEIGHT, and vis throughout the GameTrackerChart.js file
+
+```jsx
+import * as d3 from "d3"
+
+const MARGIN = { TOP: 10, BOTTOM: 50, LEFT: 70, RIGHT: 10 }
+const WIDTH = 1000 - MARGIN.LEFT - MARGIN.RIGHT
+const HEIGHT = 500 - MARGIN.TOP - MARGIN.BOTTOM
+
+export default class D3Chart {
+  constructor(element, gameData) {
+    let vis = this
+    ...
+  }
+}
+```
+
+> all below code steps will go within the constructor
+
+#### Step 3. create blank SVG canvas
+
+```jsx
+vis.svg = d3
+  .select(element)
+  .append("svg")
+  .attr("width", WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
+  .attr("height", HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
+```
+
+#### Step 4. create and append x and y axis
+
+```jsx
+// create y scale
+vis.y = d3.scaleLinear()
+  .domain([0, 1])
+  .range([0, HEIGHT])
+
+// create x scale
+vis.x = d3.scaleLinear()
+  .domain([0, gameData.length])
+  .range([0, WIDTH]
+
+// append y axis
+vis.svg.append("g")
+  .attr("class", "y axis")
+  .call(d3.axisLeft(vis.y)
+
+// append x axis
+vis.svg
+  .append("g")
+  .attr("class", "x axis")
+  .call(d3.axisBottom(vis.x))
+  .attr("transform", `translate(0, ${HEIGHT})`)
+```
+
+#### Step 5. create 50% line
+
+```jsx
+vis.svg
+  .append("path")
+  .datum([...Array(gameData.length).keys()])
+  .attr("fill", "none")
+  .attr("stroke", "steelblue")
+  .attr("stroke-width", 1.5)
+  .attr(
+    "d",
+    d3
+      .line()
+      .x(function (d) {
+        return vis.x(d)
+      })
+      .y(function (d) {
+        return vis.y(0.5)
+      })
+  )
+```
+
+#### Step 6. create line graph of data
+
+```jsx
+vis.svg
+  .append("path")
+  .datum(gameData)
+  .attr("fill", "none")
+  .attr("stroke", "steelblue")
+  .attr("stroke-width", 1.5)
+  .attr(
+    "d",
+    d3
+      .line()
+      .x(function (d, i) {
+        return vis.x(i)
+      })
+      .y(function (d) {
+        return vis.y(1 - d.node.homeTeamWinPct)
+      })
+  )
+```
+
+#### Step 7. create line graph dots
+
+```jsx
+vis.svg
+  .selectAll(".dot")
+  .data(gameData)
+  .enter()
+  .append("circle")
+  .attr("class", "dot")
+  .attr("cx", function (d, i) {
+    return vis.x(i)
+  })
+  .attr("cy", function (d) {
+    return vis.y(1 - d.node.homeTeamWinPct)
+  })
+  .attr("r", 3)
+  .attr("fill", "steelblue")
+```
+
+<br> 
 
 ***
 
+<br>
+
 ## Automation
+
 Notes of needed fixes:
 - post score (home and away)
 - winning team (needs to use post score)
