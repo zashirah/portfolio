@@ -468,6 +468,155 @@ vis.svg
   .attr("fill", "steelblue")
 ```
 
+### *Build update functionaity for D3Chart* (Day 6)
+
+I was able to build out the updating D3 chart. It is really ugly and doesn't have a ton of functionality, but I'm happy I was able to get this to work with the Gatsby + D3 frontend stack. 
+
+Check out the [live site](https://mlbgametracker.netlify.app/) here to mess around with the functionality. You basically click a button and the data updates to reflect the home team win % for each at bat. 
+
+Here's my code for building out the D3 update functionality:
+
+First you have to some of the code from the *Create Basic Line Graph with x and y axis and 50% line* section. Anything that is going to be updated when you change the source data needs to be moved into the update function. This includes the following: x-axis, 50% line (needs the x axis to work), the line chart, and the dots. 
+
+The contstructure function now looks like this:
+```jsx
+constructor(element, gameData) {
+  let vis = this
+  // create svg canvas
+  vis.svg = d3
+    .select(element)
+    .append("svg")
+    .attr("width", WIDTH + MARGIN.LEFT + MARGIN.RIGHT)
+    .attr("height", HEIGHT + MARGIN.TOP + MARGIN.BOTTOM)
+  // create y axis
+  vis.y = d3.scaleLinear().domain([0, 1]).range([0, HEIGHT])
+  // create x axis
+  // vis.x = d3.scaleLinear().domain([0, gameData.length]).range([0, WIDTH])
+  // append y axis
+  vis.svg.append("g").attr("class", "y axis").call(d3.axisLeft(vis.y))
+  // create x axis group
+  vis.xAxisGroup = vis.svg.append("g")
+  // call update()
+  vis.update(gameData)
+}
+```
+
+And we moved the x-axis and 50% line to the update function like so:
+```jsx
+update(data) {
+  const vis = this
+  // create x axis
+  const x = d3.scaleLinear().domain([0, data.length]).range([0, WIDTH])
+  // append x axis
+  const xAxisCall = d3.axisBottom(x)
+  vis.xAxisGroup
+    .transition()
+    .duration(500)
+    .call(xAxisCall)
+    .attr("transform", `translate(0, ${HEIGHT})`)
+    .transition()
+    .duration(500)
+  // 50% line
+  vis.svg
+    .append("path")
+    .datum([...Array(data.length).keys()])
+    .attr("fill", "none")
+    .attr("stroke", "steelblue")
+    .attr("stroke-width", 1.5)
+    .attr(
+      "d",
+      d3
+        .line()
+        .x(function (d) {
+          return x(d)
+        })
+        .y(function (d) {
+          return vis.y(0.5)
+        })
+    )
+...
+}
+```
+
+Then we need to build out the EXIT, UPDATE, and REMOVE functionality.
+
+Here's the code for the lines:
+```jsx
+// UPDATE THE LINES
+// DATA JOIN
+const lines = vis.svg.selectAll(".pathLine").data(data
+// EXIT
+lines
+  .exit()
+  .transition()
+  .duration(500)
+  .attr("height", 0)
+  .attr("y", HEIGHT)
+  .remove(
+// UPDATE
+lines
+  .transition()
+  .duration(500)
+  .attr(
+    "d",
+    d3
+      .line()
+      .x((d, i) => x(i))
+      .y(d => vis.y(1 - d.node.homeTeamWinPct))
+  
+// append path, bind data, call generator
+vis.svg
+  .datum(data)
+  .append("path")
+  .transition()
+  .duration(500)
+  .attr("class", "pathLine")
+  .attr("fill", "none")
+  .attr("stroke", "steelblue")
+  .attr("stroke-width", 1.5)
+  .attr(
+    "d",
+    d3
+      .line()
+      .x((d, i) => x(i))
+      .y(d => vis.y(1 - d.node.homeTeamWinPct))
+  )
+```
+
+> Note: I'm struggling with getting the lines to update correct. They are just disappearing and reappearing instead of moving like the dots are. I'll return to this after adding more functionality.
+
+Here's the code for the dots:
+```jsx
+// UPDATE THE DOTS
+// DATA JOIN
+const dots = vis.svg.selectAll(".dot").data(data
+// EXIT
+dots
+  .exit()
+  .transition()
+  .duration(500)
+  .attr("height", 0)
+  .attr("y", HEIGHT)
+  .remove(
+// UPDATE
+dots
+  .transition()
+  .duration(500)
+  .attr("cx", (d, i) => x(i))
+  .attr("cy", d => vis.y(1 - d.node.homeTeamWinPct))
+  .attr("r", 3
+// select dots class, bind data, appendcircles
+dots
+  .enter()
+  .append("circle")
+  .attr("class", "dot")
+  .attr("cx", (d, i) => x(i))
+  .attr("cy", d => vis.y(1 - d.node.homeTeamWinPct))
+  .attr("r", 3)
+  .attr("fill", "steelblue")
+```
+
+
 <br> 
 
 ***
