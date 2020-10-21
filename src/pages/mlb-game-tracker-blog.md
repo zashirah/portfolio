@@ -670,6 +670,35 @@ The next step was to add some styling to the scoreboard and D3Chart. My goal was
 
 ### *Make Responsive* (Day 8)
 
+Getting the D3 Chart to be responsive was a bit of a work around. I had the width of the visual hardcoded to be 800px. At first, I tried to switch that to be 90vw (90% of the screen view width), but that didn't work. So I had to calculate the screen width in the ChartWrapper then pass that value down to the D3Chart class. 
+
+To calculate the screen width:
+```jsx{numberLines: true}
+const screenWidth = window.innerWidth * 0.95
+```
+
+Then changed the WIDTH calculation to be calculated globally outside of the D3Chart class, like
+```js{numberLines: true}
+const MARGIN = { TOP: 60, BOTTOM: 50, LEFT: 50, RIGHT: 10 }
+const WIDTH = 600 - MARGIN.LEFT - MARGIN.RIGHT
+const HEIGHT = 400 - MARGIN.TOP - MARGIN.BOTTOM
+
+export default class D3Chart {
+  ...
+}
+```
+to go inside the D3Chart class like
+```js{numberLines: true}
+export default class D3Chart {
+  constructor(element, gameData, screenWidth) {
+    let vis = this
+  
+    vis.WIDTH = Math.min(screenWidth - MARGIN.LEFT - MARGIN.RIGHT, 800)
+...
+  }
+}
+```
+
 <br> 
 
 ***
