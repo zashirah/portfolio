@@ -239,7 +239,7 @@ Next, I connected my MongoDB through gatsby-source-mongodb through the following
 
 4. Create Graphql query on the GameContainer.jsx component (I added a filter because I don't need to work with all the data now)
 
-```jsx
+```jsx{numberLines: true}
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -322,7 +322,7 @@ The GameTrackerWrapper.jsx component is a chart wrapper for the D3Chart. Because
 
 > Note: The udemy example and code in this article all use class based react, but I wanted to utilize hooks, so I converted everything to hooks.
 
-```jsx
+```jsx{numberLines: true}
 import React, { useRef, useState, useEffect } from "react"
 import GameTrackerChart from "./GameTrackerChart"
 
@@ -350,7 +350,7 @@ export default ChartWrapper
 
 > I'll reference the WIDTH, HEIGHT, and vis throughout the GameTrackerChart.js file
 
-```jsx
+```jsx{numberLines: true}
 import * as d3 from "d3"
 
 const MARGIN = { TOP: 10, BOTTOM: 50, LEFT: 70, RIGHT: 10 }
@@ -369,7 +369,7 @@ export default class D3Chart {
 
 #### Step 3. create blank SVG canvas
 
-```jsx
+```jsx{numberLines: true}
 vis.svg = d3
   .select(element)
   .append("svg")
@@ -379,7 +379,7 @@ vis.svg = d3
 
 #### Step 4. create and append x and y axis
 
-```jsx
+```jsx{numberLines: true}
 // create y scale
 vis.y = d3.scaleLinear()
   .domain([0, 1])
@@ -405,7 +405,7 @@ vis.svg
 
 #### Step 5. create 50% line
 
-```jsx
+```jsx{numberLines: true}
 vis.svg
   .append("path")
   .datum([...Array(gameData.length).keys()])
@@ -429,7 +429,7 @@ vis.svg
 
 > You have to use 1 - d.node.homeTeamWinPct because the values are calculated from top to bottom. So the top of the SVG is y = 0.
 
-```jsx
+```jsx{numberLines: true}
 vis.svg
   .append("path")
   .datum(gameData)
@@ -451,7 +451,7 @@ vis.svg
 
 #### Step 7. create line graph dots
 
-```jsx
+```jsx{numberLines: true}
 vis.svg
   .selectAll(".dot")
   .data(gameData)
@@ -479,7 +479,7 @@ Here's my code for building out the D3 update functionality:
 First you have to some of the code from the *Create Basic Line Graph with x and y axis and 50% line* section. Anything that is going to be updated when you change the source data needs to be moved into the update function. This includes the following: x-axis, 50% line (needs the x axis to work), the line chart, and the dots. 
 
 The contstructure function now looks like this:
-```jsx
+```jsx{numberLines: true}
 constructor(element, gameData) {
   let vis = this
   // create svg canvas
@@ -502,7 +502,7 @@ constructor(element, gameData) {
 ```
 
 And we moved the x-axis and 50% line to the update function like so:
-```jsx
+```jsx{numberLines: true}
 update(data) {
   const vis = this
   // create x axis
@@ -541,7 +541,7 @@ update(data) {
 Then we need to build out the EXIT, UPDATE, and REMOVE functionality.
 
 Here's the code for the lines:
-```jsx
+```jsx{numberLines: true}
 // UPDATE THE LINES
 // DATA JOIN
 const lines = vis.svg.selectAll(".pathLine").data(data
@@ -586,7 +586,7 @@ vis.svg
 > Note: I'm struggling with getting the lines to update correct. They are just disappearing and reappearing instead of moving like the dots are. I'll return to this after adding more functionality.
 
 Here's the code for the dots:
-```jsx
+```jsx{numberLines: true}
 // UPDATE THE DOTS
 // DATA JOIN
 const dots = vis.svg.selectAll(".dot").data(data
@@ -616,6 +616,59 @@ dots
   .attr("fill", "steelblue")
 ```
 
+### *Build scoreboard & add styling to chart* (Day 7)
+
+To build the scoreboard, I needed to transform the play by play data into a more usable format. I chose to create a js object that has the Inning as the key (1T = top of the first; 1B = bottom of the first) and total runs scored as the value. 
+
+The code was simple to do this: 
+
+```js{numberLines: true}
+export default function processScoreboardData(gameData) {
+  
+  const scoreboard = {}
+
+  for (let elem of gameData) {
+    scoreboard[elem.node.inning]
+      ? (scoreboard[elem.node.inning] += elem.node.runs)
+      : (scoreboard[elem.node.inning] = elem.node.runs)
+  }
+
+  return scoreboard
+}
+```
+It return a json object that looked like this:
+```json
+{
+  '1T': 0,
+  '1B': 0,
+  '2T': 1,
+  '2B': 0,
+  ...
+  '9T': 0,
+  '9B': 2
+}
+```
+
+After running the game data through the function, I loop through the object to create each ScoreboardBox passing the necessary values through props. 
+
+```jsx{numberLines: true}
+{Object.keys(processedGameData).map(inningKey => (
+  <ScoreboardBox
+    key={inningKey}
+    value={processedGameData[inningKey]}
+    inning={inningKey[inningKey.length - 1] === "T" ? "top" : "bottom"}
+    fontSize={"36px"}
+  />
+))}
+```
+
+
+The next step was to add some styling to the scoreboard and D3Chart. My goal was to make it look like an actual scoreboard, so I copied the basic style and colors from Fenway (home of the Boston Red Sox. I don't like the Sox but it's a beautiful ballpark). I think it looks pretty good for now. 
+
+![Basic Styled Scoreboard and D3 Visual](../images/Scoreboard_Graph_Basic_Style.png)
+
+
+### *Make Responsive* (Day 8)
 
 <br> 
 
