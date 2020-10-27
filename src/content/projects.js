@@ -12,10 +12,14 @@ export const ProjectInfo = [
     title: `Premier League Survivor`,
     image: eplSurvivor,
     description: (
-      <>
+      <p>
         <p>
           Premier League Survivor is a full stack Ruby on Rails with React front
           end project and is styled using Styled Components.
+        </p>
+        <p>
+          To login without creating a user, user these credentials (username:
+          user2; password: 123456)
         </p>
         {/* <p>
           A user can create an account then join and/or create leagues. Once
@@ -25,7 +29,7 @@ export const ProjectInfo = [
           selections won't be made in a single season.If the pick wins their
           match, the user gets 3 points; 1 point with a draw and 0 with a loss.
         </p> */}
-      </>
+      </p>
     ),
     skills: ["reactjs", "ruby", "rails", "postgresql"],
     link: "https://epl-survivor.netlify.app/login",
